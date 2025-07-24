@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
-const Login = () => {
+const Home = () => {
   const navigate=useNavigation();
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -55,7 +55,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Home;
 
 const styles = StyleSheet.create({
   safeArea: {

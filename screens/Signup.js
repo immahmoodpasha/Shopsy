@@ -1,9 +1,11 @@
-import { View, Text,StyleSheet,TextInput } from 'react-native';
+import { View, Text,StyleSheet,TextInput, TouchableOpacity } from 'react-native';
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Signup = () => {
+  const navigate = useNavigation();
   return (
     <View>
      <Icon name="box-open" size={50} color="#8404aeff" style={{alignSelf: 'center', marginTop: 50}} />
@@ -33,8 +35,11 @@ const Signup = () => {
           placeholder='Enter your phone number'
           keyboardType='phone-pad'
         />
-
+        <TouchableOpacity style={styles.SignupButton}>
+          <Text style={styles.SignupText}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
+      <Text style={{textAlign: 'center', marginTop: 20}}>Already have an account? <Text style={{color: '#8404aeff'}}>Login</Text></Text>
     </View>
   )
 }
@@ -59,7 +64,9 @@ const styles = StyleSheet.create({
     label:{
         fontWeight: 'bold',
         marginLeft:5
-    }
+    },
+    SignupButton:{backgroundColor: '#8404aeff', padding: 10, borderRadius: 5, marginTop: 20,width: '80%',marginLeft: '10%'},
+    SignupText:{color: '#fff', textAlign: 'center', fontWeight: 'bold', fontSize: 18},
     
   
 });
