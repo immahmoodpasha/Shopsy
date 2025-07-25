@@ -39,7 +39,10 @@ const Signup = () => {
           <Text style={styles.SignupText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-      <Text style={{textAlign: 'center', marginTop: 20}}>Already have an account? <Text style={{color: '#8404aeff'}}>Login</Text></Text>
+      <Text style={{textAlign: 'center', marginTop: 20}}>Already have an account?
+         <Text 
+          onPress={() => navigate.navigate('Signin')}
+          style={{color: '#8404aeff'}}>Login</Text></Text>
     </View>
   )
 }

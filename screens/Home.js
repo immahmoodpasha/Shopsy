@@ -35,7 +35,7 @@ const Home = () => {
           Your one stop solution for all the grocery needs
         </Text>
 
-        <Pressable style={styles.button} onPress={() =>navigate.navigate('Signup')}>
+        <Pressable style={styles.button} onPress={() =>navigate.navigate('Signin')}>
           <Text style={styles.buttonText}>Get Started</Text>
         </Pressable>
         <Text style={{ marginTop: 10 }}>
