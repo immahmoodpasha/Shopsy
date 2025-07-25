@@ -10,6 +10,8 @@ import {
   Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
+import LottieView from 'lottie-react-native';
+
 
 const Home = () => {
   const navigate=useNavigation();
@@ -22,12 +24,12 @@ const Home = () => {
           <Text style={styles.mainheading}>Shopsy</Text>
         </View>
        
-        <Image
-          source={{
-            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73WkiBI6wZYOCkC_Ok0PVQvjjeWPbXUu9Sw&s',
-          }}
-          style={styles.image}
-        />
+        <LottieView
+  source={require('../assets/deliveryman.json')}
+  autoPlay
+  loop
+  style={styles.image}
+/>
 
         <Text style={styles.text}>Welcome to Shopsy</Text>
 
@@ -69,10 +71,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   image: {
-    width: 250,
-    height: 250,
-    borderRadius: 50,
-    marginBottom: 20,
+    width: 600,
+    height: 350
   },
   text: {
     fontSize: 28,
