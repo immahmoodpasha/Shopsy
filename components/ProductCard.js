@@ -1,8 +1,23 @@
 import { View, Image,TouchableOpacity, Text } from "react-native";
+import { useState } from "react";
 import {styles} from '../styles'
 const ProductCard = () => {
+    const [isAdded, setIsAdded] = useState(false);
+    const [count, setCount] = useState(0);
 
+    const addToCart = () => {
+        if (isAdded == false){
+            setIsAdded(true);
+        }
+        setCount(count + 1);
+    }
 
+    const removeFromCart = () => {
+        if (count == 1){
+            setIsAdded(false)
+        }
+        setCount(count - 1);
+    }
     return(
         <View style={styles.ProductCard}>
             <View testID="ImageContainer" style={styles.ImageContainer}>
@@ -11,9 +26,14 @@ const ProductCard = () => {
                 }}
                 style={{width: '100%', height: '100%', borderRadius: 20}}
                 />
-                <TouchableOpacity style={styles.AddButton}>
+                {isAdded? <View style={[styles.AddButton, {paddingVertical: '2%', paddingHorizontal: '8%',backgroundColor: '#8404aeff', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '20%', maxWidth: '80%'}]}>
+                    <TouchableOpacity onPress={()=>removeFromCart()}><Text style={{color: 'white', fontWeight: 800,fontSize: 25}}>-</Text></TouchableOpacity>
+                    <Text style={{color: 'white', fontWeight: 800,fontSize: 14}}>{count}</Text>
+                    <TouchableOpacity onPress={()=>addToCart()}><Text style={{color: 'white', fontWeight: 800,fontSize: 22}}>+</Text></TouchableOpacity>
+                </View> : <TouchableOpacity onPress={()=>addToCart()} style={styles.AddButton}>
                     <Text style={{color: '#8404aeff', fontWeight: 800,fontSize: 14}}>ADD</Text>
-                </TouchableOpacity>
+                </TouchableOpacity>}
+                
             </View>
             <View style={styles.ProductDetails}>
                 <View style={{flexDirection: 'row', alignItems: 'baseline'}}>

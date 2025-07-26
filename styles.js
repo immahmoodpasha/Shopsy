@@ -30,12 +30,12 @@ export const styles = StyleSheet.create({
         bottom: '5%',
         right: '5%',
         backgroundColor: 'white',
-        paddingVertical: 8,
-        paddingHorizontal: 17,
+        paddingVertical: '7%',
+        paddingHorizontal: '18%',
         borderRadius: 15,
         borderColor: '#8404aeff',
         borderWidth: 2,
-        boxShadow: '1px 1px 1px rgb(123, 121, 124)'
+        boxShadow: '1px 1px 1px rgb(123, 121, 124)',
     },
     ProductDetails: {
         display: 'flex',
