@@ -23,7 +23,16 @@
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "MyApp",
+      "slug": "my-app",
+      "web": {
+        "build": {
+          "babel": {
+            "include": ["./App.js"]
+          }
+        }
+      }
     }
   }
 }
