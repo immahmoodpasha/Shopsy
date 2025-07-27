@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native"
 
-const {width} = Dimensions.get('window');
+const {width: screenWidth} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
     ProductCard: {
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         paddingVertical: '7%',
         paddingHorizontal: '18%',
         borderRadius: 15,
-        borderColor: '#8404aeff',
+        borderColor: '#8404ae',
         borderWidth: 2,
         boxShadow: '1px 1px 1px rgb(123, 121, 124)',
     },
@@ -53,6 +53,58 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
     },
+    Dashboard:{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '5%',
+        flex: 1
+    },
+    Header:{
+        backgroundColor: '#8404ae',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: '5%',
+        paddingHorizontal: '5%',
+        borderRadius: 30,
+        alignItems: 'center',
+        marginBottom: '1%'
+    },
+    AdsCarousel:{
+        borderRadius: 20,
+        alignItems: 'center'
+    },
+    carouselItemContainer: {
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    carouselImage: {
+        width: '100%',
+        height: '100%'
+    },
+    CategorySection:{
+        marginVertical: '2%'
+    },
+    CategoryTitle: {
+        backgroundColor: '#8404ae',
+        borderRadius: 20,
+        paddingHorizontal: '3%',
+        paddingVertical: '1%',
+        alignSelf: 'flex-start',
+        marginTop: '4%'
+
+
+    },
+    CategoryList: {
+        paddingVertical: '2%',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        flex: 1
+    }
 
 
 })
