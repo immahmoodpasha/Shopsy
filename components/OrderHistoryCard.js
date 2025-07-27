@@ -47,7 +47,7 @@ function OrderHistoryCard ({orders}){
 
 const styles = StyleSheet.create({
     orderscard: {
-        margin:20,
+        margin:10,
         borderWidth: 0.16,
         borderRadius:8
     },
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'#6a1aff6a'
+        backgroundColor:'#a2a2a26a'
     }
 }
 )

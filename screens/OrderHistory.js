@@ -43,7 +43,7 @@ function OrderHistory(){
             data={orders}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
-            contentContainerStyle= {{paddingBottom:30}}
+            contentContainerStyle= {{paddingBottom:100}}
             />
             
            }
