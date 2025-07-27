@@ -1,14 +1,16 @@
 import { Text, TextInput, StyleSheet } from 'react-native';
 
-const AuthInput = ({ label, placeholder, secureTextEntry = false, keyboardType = 'default' }) => {
+const AuthInput = ({name,label, placeholder, secureTextEntry = false, keyboardType = 'default',InputChange }) => {
   return (
     <>
       <Text style={styles.label}>{label}</Text>
       <TextInput
+        name={name}
         style={styles.input}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
+        onChangeText={(value) => InputChange(name,value)}
       />
     </>
   );

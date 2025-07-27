@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import AuthInput from '../components/AuthInput';
@@ -8,6 +8,24 @@ import sharedStyles from '../styles/authStyles';
 
 const Signup = () => {
   const navigation = useNavigation();
+  const [formData, setFormData] =useState({
+    email: '',  
+    password: '',
+    confirmPassword: '',
+    phoneNumber: '',
+  });
+  const handleInputChange = (name, value) => {
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password, confirmPassword, phoneNumber } = formData;
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    console.log("Form submitted with data:", { email, password, phoneNumber });
+  };
 
   return (
     <View>
@@ -15,11 +33,11 @@ const Signup = () => {
       <Text style={sharedStyles.heading}>Shopsy Signup</Text>
       <Text style={{ alignSelf: 'center', marginTop: 10 }}>Register as a New User</Text>
       <View style={sharedStyles.container}>
-        <AuthInput label="Email" placeholder="Enter your email" keyboardType="email-address" />
-        <AuthInput label="Password" placeholder="Enter your password" secureTextEntry />
-        <AuthInput label="Confirm Password" placeholder="Confirm your password" secureTextEntry />
-        <AuthInput label="Phone Number" placeholder="Enter your phone number" keyboardType="phone-pad"/>
-        <AuthButton title="Sign Up" onPress={() => {}} />
+        <AuthInput name="email" label="Email" placeholder="Enter your email" keyboardType="email-address" InputChange={handleInputChange}/>
+        <AuthInput name="password" label="Password" placeholder="Enter your password" secureTextEntry InputChange={handleInputChange}/>
+        <AuthInput name="confirmPassword" label="Confirm Password" placeholder="Confirm your password" secureTextEntry InputChange={handleInputChange}/>
+        <AuthInput name="phoneNumber" label="Phone Number" placeholder="Enter your phone number" keyboardType="phone-pad"  InputChange={handleInputChange}/>
+        <AuthButton   title="SignUp" onPress={(e) => {handleSubmit(e)}} />
       </View>
       <Text style={styles.footer}>
         Already have an account?{' '}

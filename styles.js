@@ -10,20 +10,19 @@ export const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
-        width: width*0.35,
+        width: width*0.30,
         height: 'auto',
         padding: '1%',
+        marginBottom:5,
     },
     ImageContainer: {
         position: 'relative',
         aspectRatio: 1,
-        width: '90%',
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        padding: 2,
-        boxShadow: '1px 1px 3px rgba(123, 121, 124, 0.27)',
-        borderRadius: 10
+        alignItems: 'center', 
+        borderRadius: 8
     },
     AddButton: {
         position: 'absolute',

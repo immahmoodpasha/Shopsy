@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 5,
+      "name": "GoodLife UHT Toned Milk",
+      "price": 28,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/242671_1-nandini-goodlife-toned-milk.jpg",
+      "quantity": "500 ml",
+      "Category": "Dairy"
+    },
+    {
+      "id": 6,
+      "name": "Butter - Pasteurized",
+      "price": 255,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/104864_8-amul-butter-pasteurised.jpg",
+      "quantity": "500 g",
+      "Category": "Dairy"
+    },
+    {
+      "id": 7,
+      "name": "Onion (Loose)",
+      "price": 69.75,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg",
+      "quantity": "2 kg",
+      "Category": "Vegetables"
+    },
+    {
+      "id": 8,
+      "name": "Potato (Loose)",
+      "price": 50.32,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40048457_9-fresho-potato-new-crop.jpg",
+      "quantity": "1 kg",
+      "Category": "Vegetables"
+    },
+    {
+      "id": 9,
+      "name": "Tomato - Hybrid",
+      "price": 26.9,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10000200_17-fresho-tomato-hybrid.jpg",
+      "quantity": "1 kg",
+      "Category": "Vegetables"
+    },
+    {
+      "id": 10,
+      "name": "Chicken Breast - Boneless",
+      "price": 605,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10001001_7-fresho-chicken-breast-boneless-antibiotic-residue-free.jpg",
+      "quantity": "1 kg",
+      "Category": "Nonveg"
+    },
+    {
+      "id": 11,
+      "name": "Farm Eggs - Medium Tray",
+      "price": 110,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40072320_2-fresho-farm-eggs-table-tray-medium-antibiotic-residue-free.jpg",
+      "quantity": "12 pcs",
+      "Category": "Nonveg"
+    },
+    {
+      "id": 13,
+      "name": "Tender Coconut Water",
+      "price": 50,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40216129_10-fresho-tender-coconut-water-no-added-sugar-flavours.jpg",
+      "quantity": "200 ml",
+      "Category": "More"
+    },
+    {
+      "id": 14,
+      "name": "Red Label Tea",
+      "price": 145,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/266575_18-red-label-tea.jpg",
+      "quantity": "250 g",
+      "Category": "More"
+    }
+  ]
+}
