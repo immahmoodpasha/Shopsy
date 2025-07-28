@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
-        width: width*0.30,
+        width: screenWidth*0.30,
         height: 'auto',
         padding: '1%',
         marginBottom:5,

@@ -28,7 +28,7 @@ const Dashboard = () => {
                                         <ProductCard name={item}/>
                                     </View>
                                 )}/>
-                                <Icon name="circle-arrow-right" size={30} color="#8404aeff" paddingLeft="3%" />
+                                <Icon name="circle-arrow-right" size={30} color="black" paddingLeft="3%" />
                             </View>
                             
                         </View>
