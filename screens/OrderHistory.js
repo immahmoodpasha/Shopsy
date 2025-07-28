@@ -24,14 +24,14 @@ function OrderHistory(){
             console.error('Data Not Fetched')
             setloading(false)
         })
-    },[])
+    },[orders],[])
 
       const renderItem = ({ item }) => <OrderHistoryCard orders={item} />;
 
 
     return(
-        <SafeAreaView>
-            <View style={{height:80, backgroundColor:'#ffffffff'}}>
+        <SafeAreaView style={{backgroundColor:'white'}}>
+            <View style={{height:80, backgroundColor:'white'}}>
                 <View style={styles.header}>
                     <Entypo name="chevron-left" size={30} style={{marginLeft:10}}/>
                     <Text style={{fontSize:23, fontWeight:500}}>Your Orders</Text>
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         gap:12,
-        marginTop: 40
+        marginTop: 40,
+        backgroundColor:'white'
     }
  }
 )
