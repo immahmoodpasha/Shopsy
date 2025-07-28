@@ -1,30 +1,23 @@
-import { NavigationContainer } from '@react-navigation/native';
-import Signup from '../screens/Signup';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/Home';
+import Signup from '../screens/Signup';
 import Signin from '../screens/Signin';
-import Categories from '../screens/Categories';
-import Dashboard from '../screens/Dashboard';
-import OrderHistory from '../screens/OrderHistory';
-import Cart from "../screens/Cart";
+import BottomTabNavigator from './BottomTabNavigator';
+import Cart from '../screens/Cart';
 
+const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-   const Stack = createNativeStackNavigator();
   return (
-    
-    <Stack.Navigator initialRouteName="Cart" screenOptions={{headerShown: false}}>
+    <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signin" component={Signin} />
-      <Stack.Screen name="Categories" component={Categories} />
-      <Stack.Screen name="Dashboard" component={Dashboard}/>
-      <Stack.Screen name="OrderHistory" component={OrderHistory}/>
-      <Stack.Screen name="Cart" component={Cart}/>
-
-      {/* Add more screens as needed */}
+      <Stack.Screen name="MainApp" component={BottomTabNavigator} />
+      <Stack.Screen name="Cart" component={Cart} />
     </Stack.Navigator>
   );
-}
+};
 
 export default StackNavigator;
