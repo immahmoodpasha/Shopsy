@@ -6,34 +6,38 @@ import {
   TextInput,
   TouchableOpacity,
   FlatList,
+  StatusBar,
+  SafeAreaView,
+  Image
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import Card from '../components/Card';
+import Header from '../components/Header';
 
 const PRIMARY_COLOR = '#8404aeff';
 
 const categories = [
-  { name: 'clipboard-list', label: 'All Items', lib: FontAwesome5 },
-  { name: 'carrot', label: 'Vegetables', lib: FontAwesome5 },
-  { name: 'baby', label: 'Babycare', lib: FontAwesome5 },
-  { name: 'bowl', label: 'Dairy', lib: Entypo },
-  { name: 'medkit', label: 'Medicines', lib: FontAwesome5 },
-  { name: 'ellipsis-h', label: 'More', lib: FontAwesome5 },
-  { name: 'drumstick-bite', label: 'Nonveg', lib: FontAwesome5 },
+  { label: 'All Items', image: require('../images/Allitems.jpg') },
+  { label: 'Vegetables', image: require('../images/Vegetables.jpg') },
+  { label: 'Babycare', image: require('../images/Babycare.jpg') },
+  { label: 'Dairy', image: require('../images/Dairy.jpg') },
+  { label: 'Medicines', image: require('../images/Medicine.jpg') },
+  { label: 'Nonveg', image: require('../images/Nonveg.jpg') },
+  { label: 'more', image: require('../images/mor.png') },
 ];
 
-const Categories = ({route}) => {
+const Categories = ({ route }) => {
 
-  const {category} = route.params || {};
+  const { category } = route.params || {};
   const [selectedCategory, setSelectedCategory] = useState(category || 'All Items');
   const [products, setProducts] = useState([]);
 
-  
+
   useEffect(() => {
-    axios.get('http://192.168.43.182:3113/products')
+    axios.get('http://192.168.0.129:3113/products')
       .then((response) => {
         setProducts(response.data);
       })
@@ -52,53 +56,52 @@ const Categories = ({route}) => {
     selectedCategory === 'All Items'
       ? products
       : products.filter(
-          (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
-        );
+        (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
+      );
 
-  console.log("filteredProducts",filteredProducts);
 
   const renderHeader = () => (
-    <View style={styles.header}>
-      <Text style={styles.heading}>Categories</Text>
+    <View style={{ marginTop: StatusBar.currentHeight, }}>
+      <Header />
+      <View style={styles.header}>
+        {/* Search Box */}
+        <View style={styles.searchContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Search for items"
+            placeholderTextColor="#888"
+          />
+          <TouchableOpacity>
+            <Icon name="search" size={20} color={PRIMARY_COLOR} />
+          </TouchableOpacity>
+        </View>
 
-      {/* Search Box */}
-      <View style={styles.searchContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Search for items"
-          placeholderTextColor="#888"
-        />
-        <TouchableOpacity>
-          <Icon name="search" size={20} color={PRIMARY_COLOR} />
-        </TouchableOpacity>
-      </View>
-
-      {/* Category Icons */}
-      <FlatList
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={categories}
-        keyExtractor={(item) => item.label}
-        contentContainerStyle={styles.iconsContainer}
-        renderItem={({ item }) => {
-          const IconComponent = item.lib;
-          return (
+        {/* Category Icons */}
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={categories}
+          keyExtractor={(item) => item.label}
+          contentContainerStyle={styles.iconsContainer}
+          renderItem={({ item }) => {
+            const isSelected = selectedCategory === item.label;
+           return (
             <TouchableOpacity
-              style={styles.iconDiv}
-              onPress={() => setSelectedCategory(item.label)}
+              style={[styles.iconDiv,isSelected&&styles.glowEffect]}
+              onPress={() => setSelectedCategory(item.label)} 
             >
-              <IconComponent
-                name={item.name}
-                size={60}
-                color={PRIMARY_COLOR}
-                style={styles.iconStyle}
+              <Image
+                source={item.image}
+                style={styles.categoryImage}
               />
-              <Text style={styles.iconText}>{item.label}</Text>
+              <Text style={[styles.iconText,isSelected&&{color:"violet"}]}>{item.label}</Text>
             </TouchableOpacity>
-          );
-        }}
-      />
+          )
+          }}
+        />
+      </View>
     </View>
+
   );
 
   return (
@@ -107,9 +110,10 @@ const Categories = ({route}) => {
         data={filteredProducts}
         keyExtractor={(item, index) => index.toString()}
         ListHeaderComponent={renderHeader}
+        
         contentContainerStyle={styles.listContent}
         numColumns={3}
-        columnWrapperStyle={{ justifyContent: 'flex-start',gap:5 }}
+        columnWrapperStyle={{ justifyContent: 'flex-start', gap: 5 }}
         renderItem={({ item }) => <Card product={item} />}
         ListEmptyComponent={
           <Text style={styles.emptyText}>No items in this category</Text>
@@ -170,6 +174,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
     color: '#999',
   },
+  categoryImage: {
+  width: 60,
+  height: 60,
+  marginBottom: 0,
+  backgroundColor:"transparent",
+  resizeMode:'contain',
+  borderRadius:100
+},
 });
 
 export default Categories;
