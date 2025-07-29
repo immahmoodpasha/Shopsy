@@ -35,8 +35,8 @@ const BottomTabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Categories" component={Categories} />
       <Tab.Screen name="Dashboard" component={Dashboard} />
+      <Tab.Screen name="Categories" component={Categories} />
       <Tab.Screen name="OrderHistory" component={OrderHistory} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
