@@ -1,5 +1,5 @@
 import ProductCard from "../components/ProductCard";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { styles } from "../styles";
 import Header from "../components/Header";
 import AdsCarousel from "../components/AdsCarousel";
@@ -9,10 +9,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from '../components/Card';
 
-const categoriesArray = ['Vegetables', 'Fruits', 'Electronics'];
+const categoriesArray = ['Vegetables', 'Dairy', 'Nonveg', 'More'];
 
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
         axios.get('http://192.168.43.182:3113/products')
@@ -48,12 +48,12 @@ const Dashboard = () => {
                                     <Text style={{color: 'white', fontWeight: '800', fontSize: 20}}>{category}</Text>
                                 </View>
                                 <View style={styles.CategoryList}>
-                                    <FlatList horizontal data={productsInCategory} renderItem={(item, index)=>(
-                                        <View key={index}>
-                                            <Card product={item}/>
-                                        </View>
+                                    <FlatList contentContainerStyle={{gap:5}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,5)} renderItem={({item, index})=>(
+                                        <Card product={item}/>
                                     )}/>
-                                    <Icon name="circle-arrow-right" size={30} color="black" paddingLeft="3%" />
+                                    <TouchableOpacity onPress={()=>navigation.navigate('Categories', {category})}>
+                                        <Icon name="circle-arrow-right" size={30} color="#8404ae" paddingLeft="3%" />
+                                    </TouchableOpacity>
                                 </View>
                                 
                             </View>

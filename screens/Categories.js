@@ -25,12 +25,15 @@ const categories = [
   { name: 'drumstick-bite', label: 'Nonveg', lib: FontAwesome5 },
 ];
 
-const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All Items');
+const Categories = ({route}) => {
+
+  const {category} = route.params || {};
+  const [selectedCategory, setSelectedCategory] = useState(category || 'All Items');
   const [products, setProducts] = useState([]);
 
+  
   useEffect(() => {
-    axios.get('http://10.222.31.5:3113/products')
+    axios.get('http://192.168.43.182:3113/products')
       .then((response) => {
         setProducts(response.data);
       })
@@ -39,12 +42,20 @@ const Categories = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (category) {
+      setSelectedCategory(category);
+    }
+  }, [category]);
+
   const filteredProducts =
     selectedCategory === 'All Items'
       ? products
       : products.filter(
           (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
         );
+
+  console.log("filteredProducts",filteredProducts);
 
   const renderHeader = () => (
     <View style={styles.header}>
