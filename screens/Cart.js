@@ -23,7 +23,7 @@ const Cart = () => {
                     key={item.id}
                     item={item}
                     updateQuantity={updateQuantity}
-                    removeItem={removeFromCart}
+                    removeFromCart={removeFromCart}
                 />
                 ))}
         </ScrollView>

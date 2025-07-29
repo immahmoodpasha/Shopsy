@@ -13,7 +13,7 @@ const Header = () => {
                 <Icon name="shop" size={20} color="white"/>
                 <Text style={{color: 'white', fontSize: 17, fontWeight: 800}}>Shopsy store</Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('C1art')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
                 <Image source={cartIcon} style={{width: 30, height: 30}}></Image>
             </TouchableOpacity>
         </View>
