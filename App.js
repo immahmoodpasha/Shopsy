@@ -3,18 +3,21 @@ import { StyleSheet } from 'react-native';
 import StackNavigator from './Navigators/StackNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { CartProvider } from './context/CartContext'; // 👈 Create this file next
 
 export default function App() {
   return (
-    <GestureHandlerRootView>
-      <NavigationContainer> 
-        <StackNavigator />
-        <StatusBar style="auto" />
-      </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <CartProvider>
+        <NavigationContainer>
+          <StackNavigator />
+          <StatusBar style="auto" />
+        </NavigationContainer>
+      </CartProvider>
     </GestureHandlerRootView>
-    
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

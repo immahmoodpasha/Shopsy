@@ -13,7 +13,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ProductCard from '../components/ProductCard';
 import axios from 'axios';
-import Card from '../components/Card';
 
 const PRIMARY_COLOR = '#8404aeff';
 
@@ -33,16 +32,14 @@ const Categories = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-  axios.get('http://192.168.0.129:3113/products')
-    .then((response) => {
-      setProducts(response.data);
-      
-    })
-    .catch((err) => {
-      console.error('error fetching products', err);
-    });
-}, []);
-
+    axios.get('http://10.222.31.58:3113/products')
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((err) => {
+        console.error('Error fetching products', err);
+      });
+  }, []);
 
   const filteredProducts =
     selectedCategory === 'All Items'
@@ -99,7 +96,7 @@ const Categories = () => {
         numColumns={3}
         contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: 80 }}
         columnWrapperStyle={{ justifyContent: 'space-between' }}
-        renderItem={({ item }) => <Card product={item} />}
+        renderItem={({ item }) => <ProductCard product={item} />}
       />
     </View>
   );
