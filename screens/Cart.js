@@ -3,65 +3,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState, useEffect } from 'react';
 import CartItemCard from '../components/CartItemCard';
 import BillSummary from '../components/BillSummary';
+import { useCart } from '../context/CartContext';
 
 const Cart = () => {
-    const [quantity, setQuantity] = useState(1);
-    const [cartItems, setCartItems] = useState([]);
+    const {cart, removeFromCart, updateQuantity} = useCart()
 
-    const dummyCartItems = [
-        {
-            id: '1',
-            name: 'Carrot 500g',
-            category: 'Vegetables',
-            unitPrice: 3.99,
-            image: 'https://as2.ftcdn.net/v2/jpg/01/59/33/87/1000_F_159338719_7K6bGhz3qFBIpGMD4rwhLy8JWOCQKfRs.jpg',
-            quantity: 1,
-        },
-        {
-            id: '2',
-            name: 'Tomato 1kg',
-            category: 'Vegetables',
-            unitPrice: 4.99,
-            image: 'https://cdn.pixabay.com/photo/2016/02/23/17/39/tomatoes-1218054_960_720.jpg',
-            quantity: 3,
-        }
-    ];
-
-    useEffect(() => {
-        const dummyStorage = async () => {
-            const exist = await AsyncStorage.getItem('cart');
-            if (!exist) {
-                await AsyncStorage.setItem('cart', JSON.stringify(dummyCartItems));
-            }
-        };
-        dummyStorage();
-    }, []);
-    useEffect(() => {
-        const getCart = async () => {
-            const data = await AsyncStorage.getItem('cart');
-            if (data) {
-                setCartItems(JSON.parse(data));
-            }
-        };
-        getCart();
-    }, []);
-
-    const updateQuantity = async (id, delta) => {
-    const updated = cartItems.map(item =>
-        item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-    );
-
-    setCartItems(updated);
-    await AsyncStorage.setItem('cart', JSON.stringify(updated));
-    };
-
-    const removeItem = async (id) => {
-    const filtered = cartItems.filter(item => item.id !== id);
-    setCartItems(filtered);
-    await AsyncStorage.setItem('cart', JSON.stringify(filtered));
-    };
-
-    const itemTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
+    const itemTotal = cart.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
     const deliveryFee = 3;
 
   return (
@@ -71,12 +18,12 @@ const Cart = () => {
       </View>
       <View style={styles.itemsCont}>
         <ScrollView>
-            {cartItems.map((item, index) => (
+            {cart.map((item, index) => (
                 <CartItemCard
                     key={item.id}
                     item={item}
                     updateQuantity={updateQuantity}
-                    removeItem={removeItem}
+                    removeItem={removeFromCart}
                 />
                 ))}
         </ScrollView>
