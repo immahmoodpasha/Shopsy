@@ -40,7 +40,7 @@ const CartItemCard = ({ item, updateQuantity, removeFromCart }) => {
             <Text style={styles.qtyText}>+</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.but} onPress={() => removeItem(item.id)}>
+        <TouchableOpacity style={styles.but} onPress={() => removeFromCart(item.id)}>
           <Text style={{textAlign: 'center', color: '#8404ae'}}>Remove</Text>
         </TouchableOpacity>
       </View>
