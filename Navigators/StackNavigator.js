@@ -5,6 +5,7 @@ import Signup from '../screens/Signup';
 import Signin from '../screens/Signin';
 import BottomTabNavigator from './BottomTabNavigator';
 import Cart from '../screens/Cart';
+import OrderSummary from '../screens/OrderSummary'
 
 const Stack = createNativeStackNavigator();
 

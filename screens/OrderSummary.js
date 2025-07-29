@@ -10,6 +10,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import BillingSummary from "../components/BillingSummary";
 import OrderDetailsComponent from "../components/OrderDetailsComponent"
 import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 
@@ -19,13 +21,14 @@ import { ScrollView } from 'react-native';
 function OrderSummary(){
     const route = useRoute();
     const { order } = route.params;
+    const navigation = useNavigation()
 
     return (
         <ScrollView style={{backgroundColor:'white'}}>
         <View style={{marginTop: StatusBar.currentHeight, backgroundColor:'white'}}>
             <View style={styles.OrderSummaryHeader}>
                 <View>
-                    <Entypo name="chevron-left" size={35} style={{marginLeft:10}}/>
+                    <Entypo name="chevron-left" size={35} style={{marginLeft:10}} onPress={()=>navigation.navigate('OrderHistory')}/>
                 </View>
                 <View>
                     <Text style={{fontSize:16, fontWeight:400}} >Order: {order.id}</Text>
@@ -57,10 +60,10 @@ function OrderSummary(){
             </View>
             
             <View style={styles.ImageContainer}>
-                {order.items.map((item, index) => (
+                {order.items.map((item) => (
                     <>
                 <View style={{display:'flex', flexDirection:'row'}}>
-                    <View key={index}>
+                    <View key={item.name}>
                         {
                             <Image
                                 source={{ uri: item.uri }}
@@ -83,11 +86,11 @@ function OrderSummary(){
             </View>
             <View style={{borderBottomColor:'#b6b6b645', borderBottomWidth:7, marginTop:15}}></View>
             <View style={{backgroundColor:'white'}}>
-                <View style={{display:'flex', flexDirection:'row', margin:10, gap:15}}>
+                <View style={{display:'flex', flexDirection:'row', margin:10, gap:15, marginLeft:20}}>
                     <Ionicons name="receipt-outline"  size={25}></Ionicons>
                     <Text style={{fontSize:20}}>Order Summary</Text>
                 </View>
-                <View>
+                <View style={{marginLeft:10}}>
                        <BillingSummary label="Item Total" value={order.billing.itemTotal}/>
                        <BillingSummary label="Delivery Fee" value={order.billing.deliveryFee}/>
                        <BillingSummary label="Platform Fee" value={order.billing.PlatformFee}/>
@@ -97,11 +100,14 @@ function OrderSummary(){
                                 <Text style={{fontSize:20,color:'#000000eb', fontWeight:'bold'}}>Total Bill</Text>
                                 <Text style={{fontSize:15,color:'grey', marginTop:5}}>Incl. all taxes and charges</Text>
                             </View>
-                            <Text style={{fontSize:20,marginRight:30, fontWeight:'bold'}}>₹ {order.billing.totalBill+order.billing.PlatformFee}</Text>
+                            <View>
+                                <Text style={{fontSize:20,marginRight:30, fontWeight:'bold'}}>₹ {order.billing.totalBill+order.billing.PlatformFee}</Text>
+                            </View>
                         </View> 
+                        
                 </View>
                 <View style={{borderBottomColor:'#b6b6b645', borderBottomWidth:7,marginBottom:10}}></View>
-                <View style={{marginLeft:10, paddingBottom:15}}>
+                <View style={{marginLeft:20, paddingBottom:15}}>
                     <Text style={{fontSize:20,color:'#000000eb', fontWeight:'bold'}}>Order Details</Text>
                     <OrderDetailsComponent label="Order Id" value={`#${order.id}`}/>
                     <OrderDetailsComponent label="Receiver Details" value={`${order.name} , ${order.mobile}`}/>

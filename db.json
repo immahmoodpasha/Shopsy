@@ -72,5 +72,227 @@
       "quantity": "250 g",
       "Category": "More"
     }
+  ],
+  "orders": [
+    {
+      "id": "ORD1001",
+      "status": "Delivered",
+      "name":"koushik Mahavadi",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Sunflower Oil (1L)", "quantity": 2, "unitPrice": 150, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 2,
+      "billing": {
+        "itemTotal": 300,
+        "deliveryFee": 40,
+        "totalBill": 320,
+        "PlatformFee":6
+      }
+    },
+    {
+      "id": "ORD1002",
+      "status": "Failed",
+      "name":"Mahimood Pasha",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Wheat Flour (2kg)", "quantity": 1, "unitPrice": 120, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 1,
+      "billing": {
+        "itemTotal": 120,
+        "deliveryFee": 30,
+        "totalBill": 150,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1003",
+      "status": "Delivered",
+      "name":"Bhuwan Tamma",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Detergent Powder (1kg)", "quantity": 1, "unitPrice": 90.01, "uri":"https://5.imimg.com/data5/SELLER/Default/2022/4/KT/MS/JZ/148540348/1-litre-freedom-refined-sunflower-oil.png" },
+        { "name": "Toothpaste (20g)", "quantity": 1, "unitPrice": 60.88, "uri":"https://5.imimg.com/data5/SELLER/Default/2022/4/KT/MS/JZ/148540348/1-litre-freedom-refined-sunflower-oil.png"},
+        { "name": "Soap Bar", "quantity": 3, "unitPrice": 25.35, "uri":"https://5.imimg.com/data5/SELLER/Default/2022/4/KT/MS/JZ/148540348/1-litre-freedom-refined-sunflower-oil.png"}
+      ],
+      "totalItems": 3,
+      "billing": {
+        "itemTotal": 225,
+        "deliveryFee": 20,
+        "totalBill": 245,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1004",
+      "status": "Delivered",
+      "name":"Anirudh Biju Varma",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Groundnut Oil (1L)", "quantity": 1, "unitPrice": 180, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Green Gram (1kg)", "quantity": 2, "unitPrice": 150, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"}
+      ],
+      "totalItems": 2,
+      "billing": {
+        "itemTotal": 480,
+        "deliveryFee": 25,
+        "totalBill": 505,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1005",
+      "status": "Failed",
+      "name":"Jashwanth Sathyavarapu",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Shampoo (180ml)", "quantity": 1, "unitPrice": 170, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Hair Oil (100ml)", "quantity": 1, "unitPrice": 95, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 2,
+      "billing": {
+        "itemTotal": 265,
+        "deliveryFee": 20,
+        "totalBill": 285,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1006",
+      "status": "Delivered",
+      "name":"koushik Mahavadi",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Milk (500ml)", "quantity": 3, "unitPrice": 30, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Curd (500ml)", "quantity": 2, "unitPrice": 35, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 2,
+      "billing": {
+        "itemTotal": 195,
+        "deliveryFee": 15,
+        "totalBill": 210,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1007",
+      "status": "Delivered",
+      "name":"koushik Mahavadi",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Paneer (200g)", "quantity": 1, "unitPrice": 80, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Butter (100g)", "quantity": 2, "unitPrice": 50, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"}
+      ],
+      "totalItems": 2,
+      "billing": {
+        "itemTotal": 180,
+        "deliveryFee": 20,
+        "totalBill": 200,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1008",
+      "status": "Failed",
+      "name":"koushik Mahavadi",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Biscuits (Pack of 10)", "quantity": 1, "unitPrice": 100, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 1,
+      "billing": {
+        "itemTotal": 100,
+        "deliveryFee": 20,
+        "totalBill": 120,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1009",
+      "status": "Delivered",
+      "name":"koushik Mahavadi",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Salt (1kg)", "quantity": 1, "unitPrice": 25, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Sugar (1kg)", "quantity": 1, "unitPrice": 45, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Tea Powder (250g)", "quantity": 1, "unitPrice": 80, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 3,
+      "billing": {
+        "itemTotal": 150,
+        "deliveryFee": 15,
+        "totalBill": 165,
+        "PlatformFee": 6
+      }
+    },
+    {
+      "id": "ORD1010",
+      "status": "Delivered",
+      "name":"koushik Mahavadi",
+      "mobile":"+91 6300664663",
+      "address":"43-141-4 Prakash Nagar, Piple road, Vijayawada, 520015",
+      "orderplaced":"17 Mar 2025",
+      "orderplacedtime":"05:49pm",
+      "orderreceived":"17 Mar 2025",
+      "orderreceivedat":"06:20pm",
+      "items": [
+        { "name": "Instant Noodles (Pack of 5)", "quantity": 2, "unitPrice": 60, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" },
+        { "name": "Chips (Large Pack)", "quantity": 1, "unitPrice": 40, "uri":"https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100" }
+      ],
+      "totalItems": 2,
+      "billing": {
+        "itemTotal": 160,
+        "deliveryFee": 10,
+        "totalBill": 170,
+        "PlatformFee": 6
+      }
+    }
   ]
+
 }

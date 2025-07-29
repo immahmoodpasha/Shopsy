@@ -15,7 +15,7 @@ function OrderHistory(){
     const [loading, setloading] = useState(true)
     
     useEffect(()=>{
-        axios.get('http://10.222.31.58:3113/orders')
+        axios.get('http://192.168.73.36:3113/orders')
         .then((response)=>{
             setOrders(response.data)
             setloading(false)
@@ -24,7 +24,7 @@ function OrderHistory(){
             console.error('Data Not Fetched')
             setloading(false)
         })
-    },[])
+    },[orders])
 
       const renderItem = ({ item }) => <OrderHistoryCard orders={item} />;
 
