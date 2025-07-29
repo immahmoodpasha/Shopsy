@@ -1,22 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "GoodLife UHT Toned Milk",
-      "price": 28,
-      "image": "https://www.bigbasket.com/media/uploads/p/l/242671_1-nandini-goodlife-toned-milk.jpg",
-      "quantity": "500 ml",
-      "Category": "Dairy"
-    },
-    {
-      "id": 2,
-      "name": "Butter - Pasteurized",
-      "price": 255,
-      "image": "https://www.bigbasket.com/media/uploads/p/l/104864_8-amul-butter-pasteurised.jpg",
-      "quantity": "500 g",
-      "Category": "Dairy"
-    },
-    {
       "id": 5,
       "name": "GoodLife UHT Toned Milk",
       "price": 28,
@@ -88,104 +72,5 @@
       "quantity": "250 g",
       "Category": "More"
     }
-  ],
-  "orders": [
-    {
-      "id": "ORD1001",
-      "status": "Delivered",
-      "date": "2025-07-25",
-      "time": "13:45",
-      "items": [
-        { "name": "Sunflower Oil (1L)", "quantity": 2, "unitPrice": 150, "uri":"https://www.google.com/imgres?q=sunflower%20oil%201lit&imgurl=https%3A%2F%2F5.imimg.com%2Fdata5%2FSELLER%2FDefault%2F2022%2F4%2FKT%2FMS%2FJZ%2F148540348%2F1-litre-freedom-refined-sunflower-oil.png&imgrefurl=https%3A%2F%2Fwww.indiamart.com%2Fproddetail%2F1-litre-freedom-refined-sunflower-oil-25235302588.html%3Fsrsltid%3DAfmBOooItJlUfd8_as-JPByZSDrYG5f-Cn-DXV8rujGaXfinuehZhvX4&docid=aT8hrzNs7jOUzM&tbnid=WD6O7nlMRgzokM&vet=12ahUKEwizjfvp9t6OAxVaoGMGHZWRHyAQM3oECAkQAA..i&w=600&h=600&hcb=2&ved=2ahUKEwizjfvp9t6OAxVaoGMGHZWRHyAQM3oECAkQAA" }
-      ],
-      "totalItems": 2,
-      "billing": {
-        "itemTotal": 900,
-        "deliveryFee": 40,
-        "totalBill": 940
-      }
-    },
-    {
-      "id": "ORD1002",
-      "status": "Failed",
-      "date": "2025-07-24",
-      "time": "18:30",
-      "items": [
-        { "name": "Wheat Flour (2kg)", "quantity": 1, "unitPrice": 120 }
-      ],
-      "totalItems": 1,
-      "billing": {
-        "itemTotal": 380,
-        "deliveryFee": 30,
-        "totalBill": 410
-      }
-    },
-    {
-      "id": "ORD1003",
-      "status": "Delivered",
-      "date": "2025-07-23",
-      "time": "15:00",
-      "items": [
-        { "name": "Detergent Powder (1kg)", "quantity": 1, "unitPrice": 90 },
-        { "name": "Toothpaste (200g)", "quantity": 1, "unitPrice": 60 },
-        { "name": "Soap Bar", "quantity": 3, "unitPrice": 25 }
-      ],
-      "totalItems": 3,
-      "billing": {
-        "itemTotal": 225,
-        "deliveryFee": 20,
-        "totalBill": 245
-      }
-    },
-    {
-      "id": "ORD1004",
-      "status": "Delivered",
-      "date": "2025-07-22",
-      "time": "11:15",
-      "items": [
-        { "name": "Groundnut Oil (1L)", "quantity": 1, "unitPrice": 180 },
-        { "name": "Green Gram (1kg)", "quantity": 2, "unitPrice": 150 }
-      ],
-      "totalItems": 2,
-      "billing": {
-        "itemTotal": 480,
-        "deliveryFee": 25,
-        "totalBill": 505
-      }
-    },
-    {
-      "id": "ORD1005",
-      "status": "Failed",
-      "date": "2025-07-21",
-      "time": "10:20",
-      "items": [
-        { "name": "Shampoo (180ml)", "quantity": 1, "unitPrice": 170 },
-        { "name": "Hair Oil (100ml)", "quantity": 1, "unitPrice": 95 }
-      ],
-      "totalItems": 2,
-      "billing": {
-        "itemTotal": 265,
-        "deliveryFee": 20,
-        "totalBill": 285
-      }
-    },
-    {
-      "id": "ORD1006",
-      "status": "Delivered",
-      "date": "2025-07-20",
-      "time": "09:50",
-      "items": [
-        { "name": "Milk (500ml)", "quantity": 3, "unitPrice": 30 },
-        { "name": "Curd (500ml)", "quantity": 2, "unitPrice": 35 }
-      ],
-      "totalItems": 2,
-      "billing": {
-        "itemTotal": 195,
-        "deliveryFee": 15,
-        "totalBill": 210
-      }
-    }
   ]
 }
-
-

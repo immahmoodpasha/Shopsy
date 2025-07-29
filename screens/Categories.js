@@ -4,14 +4,15 @@ import {
   Text,
   StyleSheet,
   TextInput,
+  ScrollView,
   TouchableOpacity,
   FlatList,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ProductCard from '../components/ProductCard';
 import axios from 'axios';
-import Card from '../components/Card';
 
 const PRIMARY_COLOR = '#8404aeff';
 
@@ -22,8 +23,9 @@ const categories = [
   { name: 'bowl', label: 'Dairy', lib: Entypo },
   { name: 'medkit', label: 'Medicines', lib: FontAwesome5 },
   { name: 'ellipsis-h', label: 'More', lib: FontAwesome5 },
-  { name: 'drumstick-bite', label: 'Nonveg', lib: FontAwesome5 },
+  { name: 'drumstick-bite', label: 'Nonveg', lib: FontAwesome5 }, // Optional
 ];
+
 
 const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Items');
@@ -42,13 +44,13 @@ const Categories = () => {
   const filteredProducts =
     selectedCategory === 'All Items'
       ? products
-      : products.filter(
-          (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
-        );
-
-  const renderHeader = () => (
-    <View style={styles.header}>
+      :products.filter(
+  (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase());
+  return (
+    <View style={styles.container}>
       <Text style={styles.heading}>Categories</Text>
+
+      {/* Search Box */}
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.input}
@@ -59,16 +61,19 @@ const Categories = () => {
           <Icon name="search" size={20} color={PRIMARY_COLOR} />
         </TouchableOpacity>
       </View>
-      <FlatList
+
+      {/* Horizontal Scroll Category Icons */}
+      <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={categories}
-        keyExtractor={(item) => item.label}
         contentContainerStyle={styles.iconsContainer}
-        renderItem={({ item }) => {
+        style={styles.scrollContainer}
+      >
+        {categories.map((item, index) => {
           const IconComponent = item.lib;
           return (
             <TouchableOpacity
+              key={index}
               style={styles.iconDiv}
               onPress={() => setSelectedCategory(item.label)}
             >
@@ -81,30 +86,27 @@ const Categories = () => {
               <Text style={styles.iconText}>{item.label}</Text>
             </TouchableOpacity>
           );
-        }}
-      />
-    </View>
-  );
+        })}
+      </ScrollView>
 
-  return (
-    <View style={{ flex: 1 }}>
+      {/* Product Cards */}
       <FlatList
         data={filteredProducts}
         keyExtractor={(item, index) => index.toString()}
-        ListHeaderComponent={renderHeader}
-        contentContainerStyle={styles.listContent}
         numColumns={3}
-        columnWrapperStyle={{justifyContent:'flex-start',columnGap:'5', marginHorizontal:0 }}
-        renderItem={({ item })=><Card product={item} />}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>No items in this category</Text>
-        }
+        contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: 80 }}
+        columnWrapperStyle={{ justifyContent: 'space-between' }}
+        renderItem={({ item }) => <ProductCard product={item} />}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 20,
+  },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -112,26 +114,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 20,
   },
-  header: {
-    paddingHorizontal: 10,
-  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginHorizontal: 20,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
     paddingHorizontal: 10,
     backgroundColor: '#fff',
-    marginBottom: 15,
   },
   input: {
     flex: 1,
     paddingVertical: 8,
     fontSize: 16,
   },
+  scrollContainer: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
   iconsContainer: {
-    paddingBottom: 20,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
   },
   iconDiv: {
     marginRight: 20,
@@ -139,21 +143,13 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     alignSelf: 'center',
+    marginHorizontal: 10,
   },
   iconText: {
     textAlign: 'center',
     fontSize: 10,
     marginTop: 10,
     fontWeight: 'bold',
-  },
-  listContent: {
-    paddingHorizontal: 10,
-    paddingBottom: 100,
-  },
-  emptyText: {
-    textAlign: 'center',
-    marginTop: 30,
-    color: '#999',
   },
 });
 

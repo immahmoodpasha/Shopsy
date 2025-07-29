@@ -20,7 +20,7 @@ const Signin = () => {
 
         <Text style={styles.forgotPassword}>Forgot password?</Text>
 
-        <AuthButton title="Sign In" onPress={() => navigation.navigate('MainApp')} />
+        <AuthButton title="Sign In" onPress={() => navigation.navigate('Categories')} />
       </View>
 
       <Text style={styles.footer}>
