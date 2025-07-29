@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext';
 import { styles } from '../styles';
 
 const Card = ({ product }) => {
-  const { cart, addToCart, removeFromCart, updateQuantity } = useCart();
+  const { cart, addToCart, removeFromCart, updateQuantity,clearCart } = useCart();
 
   // Find product in cart
   const cartItem = cart.find(item => item.id === product.id);
@@ -17,7 +17,7 @@ const Card = ({ product }) => {
       quantity: product.quantity,
       Category: product.Category
     }, 1);
-    
+    // clearCart();
   };
 
   const handleRemove = () => {

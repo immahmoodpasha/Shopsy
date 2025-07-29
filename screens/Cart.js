@@ -29,16 +29,16 @@ const Cart = () => {
 
     useEffect(() => {
         const dummyStorage = async () => {
-            const exist = await AsyncStorage.getItem('cart');
+            const exist = await AsyncStorage.getItem('carts');
             if (!exist) {
-                await AsyncStorage.setItem('cart', JSON.stringify(dummyCartItems));
+                await AsyncStorage.setItem('carts', JSON.stringify(dummyCartItems));
             }
         };
         dummyStorage();
     }, []);
     useEffect(() => {
         const getCart = async () => {
-            const data = await AsyncStorage.getItem('cart');
+            const data = await AsyncStorage.getItem('carts');
             if (data) {
                 setCartItems(JSON.parse(data));
             }
@@ -52,13 +52,13 @@ const Cart = () => {
     );
 
     setCartItems(updated);
-    await AsyncStorage.setItem('cart', JSON.stringify(updated));
+    await AsyncStorage.setItem('carts', JSON.stringify(updated));
     };
 
     const removeItem = async (id) => {
     const filtered = cartItems.filter(item => item.id !== id);
     setCartItems(filtered);
-    await AsyncStorage.setItem('cart', JSON.stringify(filtered));
+    await AsyncStorage.setItem('carts', JSON.stringify(filtered));
     };
 
     const itemTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);

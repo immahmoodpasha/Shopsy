@@ -1,11 +1,11 @@
 // Navigators/BottomTabNavigator.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Categories from '../screens/Categories';
 import Dashboard from '../screens/Dashboard';
 import OrderHistory from '../screens/OrderHistory';
 import Profile from '../screens/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Categories from '../screens/Categories';
 
 const Tab = createBottomTabNavigator();
 

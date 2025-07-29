@@ -14,8 +14,9 @@ const StackNavigator = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signin" component={Signin} />
+      <Stack.Screen name="Cart" component={Cart}/>
       <Stack.Screen name="MainApp" component={BottomTabNavigator} />
-      <Stack.Screen name="Cart" component={Cart} />
+      
     </Stack.Navigator>
   );
 };
