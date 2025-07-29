@@ -26,8 +26,8 @@ const CartItemCard = ({ item, updateQuantity, removeFromCart }) => {
         <View style={styles.ordContent}>
           <Text style={{fontSize: 15}}>{item.name}</Text>
           <Text style={{fontSize: 11}}>Category: {item.category}</Text>
-          <Text style={{fontSize: 11}}>Unit Price: ${item.unitPrice}</Text>
-          <Text style={{fontSize: 11}}>Total Price: ${(item.unitPrice * item.quantity).toFixed(2)}</Text>
+          <Text style={{fontSize: 11}}>Unit Price: {'\u20B9'}{(item.price).toFixed(2)}</Text>
+          <Text style={{fontSize: 11}}>Total Price: {'\u20B9'}{(item.price * item.count).toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.butItemCard}>

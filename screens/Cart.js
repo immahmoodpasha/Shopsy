@@ -4,13 +4,35 @@ import React, { useState, useEffect } from 'react';
 import CartItemCard from '../components/CartItemCard';
 import BillSummary from '../components/BillSummary';
 import { useCart } from '../context/CartContext';
+import axios from 'axios';
 
 const Cart = () => {
-    const {cart, removeFromCart, updateQuantity} = useCart()
+    const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
+    const itemTotal = cart.reduce((total, item) => total + item.price * item.count, 0);
+    const deliveryFee = 'Free';
 
-    const itemTotal = cart.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-    const deliveryFee = 3;
-
+    const handleCheckout = async () => {
+        const resToBack = cart.map(item =>({
+            productId: item.id,
+            quantity: item.count,
+            unitPrice: item.price
+        }));
+        try {
+            const response = await axios.post ('http://10.222.31.5:3113/orders',{
+                items: resToBack
+            });
+            if (response.status === 201 || response.status === 200) {
+                console.log('order placed successfully: ', response.data);
+                clearCart();
+            }
+            else {
+                console.warn('Something went wrong: ', response.status);
+            }
+        }
+        catch (error) {
+            console.error('checkout error: ', error.message);
+        }
+    }
   return (
     <View style={styles.container}>
       <View style={styles.cartTitCont}>
@@ -30,7 +52,7 @@ const Cart = () => {
       </View>
      <BillSummary itemTotal={itemTotal} deliveryFee={deliveryFee} />
       <View>
-        <TouchableOpacity style={styles.checkoutBtn}>
+        <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckout}>
             <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'white'}}>Checkout</Text>
         </TouchableOpacity>
       </View>
