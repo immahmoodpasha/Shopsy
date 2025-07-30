@@ -1,13 +1,40 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { useCart } from '../context/CartContext';
+import axios from 'axios';
+
+
 
 const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
   const toPay = itemTotal;
-
+  const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
+  const handleCheckout = async () => {
+        const resToBack = cart.map(item =>({
+            productId: item.id,
+            quantity: item.count,
+            unitPrice: item.price
+        }));
+        try {
+            const response = await axios.post ('http://10.157.223.5:3113/orders',{
+                items: resToBack
+            });
+            if (response.status === 201 || response.status === 200) {
+                console.log('order placed successfully: ', response.data);
+                clearCart();
+            }
+            else {
+                console.warn('Something went wrong: ', response.status);
+            }
+        }
+        catch (error) {
+            console.error('checkout error: ', error.message);
+        }
+    }
   return (
     <View style={styles.billCont}>
       <View style={{ margin: 5 }}>
-        <Text>Bill Summary</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 17.5}}>Bill Summary</Text>
       </View>
       <View style={styles.rowGroup}>
         <View style={styles.row}>
@@ -20,8 +47,13 @@ const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
         </View>
       </View>
       <View style={styles.rowBottom}>
-        <Text>To Pay</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 15}}>To Pay</Text>
         <Text> {'\u20B9'}{toPay.toFixed(2)}</Text>
+      </View>
+      <View style={{marginTop: 5, marginBottom: 7.5}}>
+        <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckout}>
+            <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'white'}}>Checkout</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -31,7 +63,7 @@ export default BillSummary;
 
 const styles = StyleSheet.create({
   billCont: {
-    height: '15%',
+    height: '25%',
     backgroundColor: '#CFCFCF',
     margin: 10,
   },
@@ -49,4 +81,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  checkoutBtn: {
+        margin: 10,
+        backgroundColor:'#8404ae',
+        height: '82.5%',
+        display: 'flex',
+        justifyContent: 'center',
+        borderRadius: 7.5
+    }
 });
