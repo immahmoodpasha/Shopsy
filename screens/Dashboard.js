@@ -48,11 +48,11 @@ const Dashboard = ({navigation}) => {
                                     <Text style={{color: 'white', fontWeight: '800', fontSize: 20}}>{category}</Text>
                                 </View>
                                 <View style={styles.CategoryList}>
-                                    <FlatList contentContainerStyle={{gap:5}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,5)} renderItem={({item, index})=>(
+                                    <FlatList contentContainerStyle={{gap:5}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,3)} renderItem={({item, index})=>(
                                         <Card product={item}/>
                                     )}/>
                                     <TouchableOpacity onPress={()=>navigation.navigate('Categories', {category})}>
-                                        <Icon name="circle-arrow-right" size={30} color="#8404ae" paddingLeft="3%" />
+                                        <Text size={30} style={{color: '#8404ae', paddingLeft: '3%'}}>View More</Text>
                                     </TouchableOpacity>
                                 </View>
                                 
