@@ -57,7 +57,6 @@ export const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        padding: '5%',
         flex: 1
     },
     Header: {
@@ -65,7 +64,8 @@ export const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingVertical: 12,
+        paddingVertical: 20,
+        paddingTop: 34,
         paddingHorizontal: 16,
         alignItems: 'center',
         marginBottom: 12, // or remove if you want flush layout

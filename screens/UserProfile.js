@@ -12,7 +12,7 @@ import { useNavigation} from '@react-navigation/native';
 
 function UserProfile(){
     const navigation = useNavigation()
-    const url= 'http://192.168.73.36:3113/userProfile'
+    const url= 'http://192.168.43.182:3113/userProfile'
 
     const [data, setData] = useState(null)
     const [isLoading, setisLoading] = useState(true)

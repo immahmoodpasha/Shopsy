@@ -15,7 +15,7 @@ const categoriesArray = ['Vegetables', 'Dairy', 'Nonveg', 'More'];
 const Dashboard = ({navigation}) => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('http://10.157.223.58:3113/products')
+        axios.get('http://192.168.43.182:3113/products')
         .then(
             (response)=>{
                 setProducts(response.data);
@@ -33,8 +33,8 @@ const Dashboard = ({navigation}) => {
     return(
         <View style={styles.Dashboard}>
             <Header/>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={{color: '#8404ae', fontSize: 20, fontWeight: '700', padding: '3%', paddingHorizontal: '2%'}}>Welcome User</Text>
+            <ScrollView style={{paddingHorizontal: '5%'}} showsVerticalScrollIndicator={false}>
+                <Text style={{color: '#8404ae', fontSize: 20, fontWeight: '700', paddingVertical: '3%'}}>Welcome User</Text>
                 <AdsCarousel />
                 <View style={styles.CategorySection}>
                     {categoriesArray.map((category, index)=>{
