@@ -64,9 +64,9 @@ export const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingVertical: 20,
-        paddingTop: 34,
-        paddingHorizontal: 16,
+        paddingVertical: '5%',
+        paddingTop: '8%',
+        paddingHorizontal: '6%',
         alignItems: 'center',
         marginBottom: 12, // or remove if you want flush layout
 },
@@ -91,8 +91,6 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: '3%',
         paddingVertical: '1%',
-        alignSelf: 'flex-start',
-        marginTop: '4%'
     },
     CategoryList: {
         paddingVertical: '2%',
