@@ -15,7 +15,7 @@ const categoriesArray = ['Vegetables', 'Dairy', 'Nonveg', 'More'];
 const Dashboard = ({navigation}) => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('http://192.168.0.129:3113/products')
+        axios.get('http://10.157.223.5:3113/products')
         .then(
             (response)=>{
                 setProducts(response.data);
