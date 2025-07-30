@@ -59,7 +59,7 @@ const Categories = ({ route }) => {
     <View style={{ flex: 1, backgroundColor:'#f0e6ff', }}>
       {/* Sticky Header Area */}
       <View style={styles.stickyHeader}>
-        <View style={{ marginTop: StatusBar.currentHeight }}>
+        <View>
           <Header />
         </View>
 
