@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
+
 const Cart = () => {
     const navigation = useNavigation();
     const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
@@ -44,7 +45,7 @@ const Cart = () => {
                 </TouchableOpacity>
             </View>
         ) : (
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 {cart.map((item, index) => (
                     <CartItemCard
                         key={item.id}
