@@ -15,7 +15,7 @@ function OrderHistory(){
     const [loading, setloading] = useState(true)
     
     useEffect(()=>{
-        axios.get('http://192.168.43.182:3113/orders')
+        axios.get('http://10.128.19.188:3113/orders')
         .then((response)=>{
             setOrders(response.data)
             setloading(false)

@@ -33,7 +33,7 @@ const Categories = ({ route }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://192.168.43.182:3113/products')
+    axios.get('http://10.128.19.188:3113/products')
       .then((response) => {
         setProducts(response.data);
       })

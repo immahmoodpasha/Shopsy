@@ -7,6 +7,7 @@ import axios from 'axios';
 
 
 const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
+  const navigation = useNavigation();
   const toPay = itemTotal;
   const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
   const handleCheckout = async () => {
@@ -16,12 +17,13 @@ const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
             unitPrice: item.price
         }));
         try {
-            const response = await axios.post ('http://192.168.43.182:3113/orders',{
+            const response = await axios.post ('http://10.128.19.188:3113/orders',{
                 items: resToBack
             });
             if (response.status === 201 || response.status === 200) {
                 console.log('order placed successfully: ', response.data);
                 clearCart();
+                navigation.navigate('OrderPlaced');
             }
             else {
                 console.warn('Something went wrong: ', response.status);
@@ -64,7 +66,6 @@ export default BillSummary;
 const styles = StyleSheet.create({
   billCont: {
     height: '25%',
-    backgroundColor: '#CFCFCF',
     margin: 10,
   },
   rowGroup: {

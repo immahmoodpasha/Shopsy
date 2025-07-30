@@ -35,7 +35,7 @@ const Cart = () => {
         {cart.length===0 ? (
             <View style={styles.empCartCont}>
                 <View style={styles.empCartIcon}>
-                    <MaterialIcons name='add-shopping-cart' size={80}/>
+                    <MaterialIcons name='add-shopping-cart' size={80} style={{color: 'gray'}}/>
                 </View>
                 <View>
                     <Text style={{fontSize: 17.5, fontWeight: 'bold'}}>Oops.....Your Cart is Empty!!</Text>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     itemsCont: {
-        // backgroundColor: '#CFCFCF',
+        
         height: '93.5%',
         margin: 10,
         display: 'flex',
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         marginBottom: 0
     },
     empCartCont: {
-        backgroundColor: '#CFCFCF',
+        backgroundColor: 'white',
         width: '100%',
         height: '42.5%',
         display: 'flex',
@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
     },
     empCartIcon: {
         width: '35%',
-        height:'50%',
-        backgroundColor: 'white',
+        height:'52.5%',
+        backgroundColor: '#CFCFCF',
         borderRadius: 20,
         display: 'flex',
         alignItems: 'center',
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        backgroundColor: '#CFCFCF',
+        backgroundColor: 'white',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         paddingTop: 10,

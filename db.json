@@ -67,7 +67,7 @@
     {
       "id": "23",
       "name": "Carrot Orange (Loose)",
-      "price": 45.00,
+      "price": 45,
       "image": "https://www.bigbasket.com/media/uploads/p/l/10000070_21-fresho-carrot-orange.jpg",
       "quantity": "500 g",
       "Category": "Vegetables"
@@ -75,7 +75,7 @@
     {
       "id": "24",
       "name": "Cucumber",
-      "price": 30.50,
+      "price": 30.5,
       "image": "https://www.bigbasket.com/media/uploads/p/l/10000096_22-fresho-cucumber.jpg",
       "quantity": "500 g",
       "Category": "Vegetables"
@@ -83,7 +83,7 @@
     {
       "id": "25",
       "name": "Spinach (Loose)",
-      "price": 25.00,
+      "price": 25,
       "image": "https://www.bigbasket.com/media/uploads/p/l/10000277_10-fresho-spinach.jpg",
       "quantity": "250 g",
       "Category": "Vegetables"
@@ -91,7 +91,7 @@
     {
       "id": "26",
       "name": "Capsicum Green (Loose)",
-      "price": 55.00,
+      "price": 55,
       "image": "https://www.bigbasket.com/media/uploads/p/l/10000067_20-fresho-capsicum-green.jpg",
       "quantity": "500 g",
       "Category": "Vegetables"
@@ -729,6 +729,316 @@
           "productId": "6",
           "quantity": 1,
           "unitPrice": 255
+        }
+      ]
+    },
+    {
+      "id": "a7a6",
+      "items": [
+        {
+          "productId": "6",
+          "quantity": 3,
+          "unitPrice": 255
+        },
+        {
+          "productId": "5",
+          "quantity": 3,
+          "unitPrice": 28
+        },
+        {
+          "productId": "9",
+          "quantity": 1,
+          "unitPrice": 26.9
+        },
+        {
+          "productId": "20",
+          "quantity": 1,
+          "unitPrice": 95
+        },
+        {
+          "productId": "29",
+          "quantity": 1,
+          "unitPrice": 450
+        },
+        {
+          "productId": "24",
+          "quantity": 1,
+          "unitPrice": 30.5
+        },
+        {
+          "productId": "11",
+          "quantity": 1,
+          "unitPrice": 110
+        },
+        {
+          "productId": "13",
+          "quantity": 1,
+          "unitPrice": 50
+        },
+        {
+          "productId": "33",
+          "quantity": 1,
+          "unitPrice": 399
+        }
+      ]
+    },
+    {
+      "id": "f085",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 3,
+          "unitPrice": 50.32
+        },
+        {
+          "productId": "7",
+          "quantity": 1,
+          "unitPrice": 69.75
+        },
+        {
+          "productId": "13",
+          "quantity": 1,
+          "unitPrice": 50
+        },
+        {
+          "productId": "11",
+          "quantity": 1,
+          "unitPrice": 110
+        },
+        {
+          "productId": "10",
+          "quantity": 1,
+          "unitPrice": 605
+        },
+        {
+          "productId": "14",
+          "quantity": 1,
+          "unitPrice": 145
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "unitPrice": 255
+        },
+        {
+          "productId": "5",
+          "quantity": 1,
+          "unitPrice": 28
+        }
+      ]
+    },
+    {
+      "id": "11e8",
+      "items": [
+        {
+          "productId": "7",
+          "quantity": 1,
+          "unitPrice": 69.75
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "unitPrice": 50.32
+        },
+        {
+          "productId": "5",
+          "quantity": 1,
+          "unitPrice": 28
+        },
+        {
+          "productId": "20",
+          "quantity": 1,
+          "unitPrice": 95
+        },
+        {
+          "productId": "23",
+          "quantity": 1,
+          "unitPrice": 45
+        },
+        {
+          "productId": "13",
+          "quantity": 1,
+          "unitPrice": 50
+        },
+        {
+          "productId": "11",
+          "quantity": 1,
+          "unitPrice": 110
+        },
+        {
+          "productId": "25",
+          "quantity": 1,
+          "unitPrice": 25
+        }
+      ]
+    },
+    {
+      "id": "bb41",
+      "items": [
+        {
+          "productId": "7",
+          "quantity": 1,
+          "unitPrice": 69.75
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "unitPrice": 50.32
+        },
+        {
+          "productId": "22",
+          "quantity": 1,
+          "unitPrice": 140
+        },
+        {
+          "productId": "20",
+          "quantity": 1,
+          "unitPrice": 95
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "unitPrice": 255
+        },
+        {
+          "productId": "5",
+          "quantity": 1,
+          "unitPrice": 28
+        },
+        {
+          "productId": "21",
+          "quantity": 1,
+          "unitPrice": 180
+        },
+        {
+          "productId": "9",
+          "quantity": 1,
+          "unitPrice": 26.9
+        },
+        {
+          "productId": "23",
+          "quantity": 1,
+          "unitPrice": 45
+        }
+      ]
+    },
+    {
+      "id": "0254",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1,
+          "unitPrice": 50.32
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "unitPrice": 255
+        },
+        {
+          "productId": "7",
+          "quantity": 1,
+          "unitPrice": 69.75
+        },
+        {
+          "productId": "9",
+          "quantity": 1,
+          "unitPrice": 26.9
+        },
+        {
+          "productId": "11",
+          "quantity": 1,
+          "unitPrice": 110
+        },
+        {
+          "productId": "14",
+          "quantity": 1,
+          "unitPrice": 145
+        }
+      ]
+    },
+    {
+      "id": "92a5",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1,
+          "unitPrice": 28
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "unitPrice": 255
+        },
+        {
+          "productId": "20",
+          "quantity": 1,
+          "unitPrice": 95
+        }
+      ]
+    },
+    {
+      "id": "4798",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1,
+          "unitPrice": 50.32
+        },
+        {
+          "productId": "7",
+          "quantity": 1,
+          "unitPrice": 69.75
+        }
+      ]
+    },
+    {
+      "id": "1e1d",
+      "items": [
+        {
+          "productId": "6",
+          "quantity": 1,
+          "unitPrice": 255
+        },
+        {
+          "productId": "7",
+          "quantity": 1,
+          "unitPrice": 69.75
+        },
+        {
+          "productId": "20",
+          "quantity": 1,
+          "unitPrice": 95
+        },
+        {
+          "productId": "5",
+          "quantity": 1,
+          "unitPrice": 28
+        },
+        {
+          "productId": "22",
+          "quantity": 1,
+          "unitPrice": 140
+        },
+        {
+          "productId": "23",
+          "quantity": 1,
+          "unitPrice": 45
+        },
+        {
+          "productId": "9",
+          "quantity": 1,
+          "unitPrice": 26.9
+        },
+        {
+          "productId": "21",
+          "quantity": 1,
+          "unitPrice": 180
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "unitPrice": 50.32
         }
       ]
     }
