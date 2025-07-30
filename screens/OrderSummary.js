@@ -60,29 +60,25 @@ function OrderSummary(){
             </View>
             
             <View style={styles.ImageContainer}>
-                {order.items.map((item) => (
-                    <>
-                <View style={{display:'flex', flexDirection:'row'}}>
-                    <View key={item.name}>
-                        {
-                            <Image
-                                source={{ uri: item.uri }}
-                                style={{ width: 40, height: 40, marginTop:10}}
+                {order.items.map((item, index) => (
+                    <View key={item.name + index} style={{display: 'flex', flexDirection: 'row'}}>
+                        <View>
+                        <Image
+                            source={{ uri: item.uri }}
+                            style={{ width: 40, height: 40, marginTop: 10 }}
                         />
-                        }
-                    </View>
-                    
-                    <View style={{marginLeft:20, marginTop:10,display:'flex', flexDirection:'column'}}>
-                        <Text style={{fontSize:16}}>{item.name}</Text>
-                        <Text style={{color:'grey'}}>{item.quantity} units</Text>
-                    </View>
-                    <View style={{marginLeft:'auto', marginTop:15, marginRight:25}}>
-                        <Text style={{fontSize:18, fontWeight:'bold'}}>₹ {item.unitPrice }</Text>
-                    </View>
+                        </View>
 
-                </View>
-                </>
-                ))}
+                        <View style={{ marginLeft: 20, marginTop: 10, display: 'flex', flexDirection: 'column' }}>
+                        <Text style={{ fontSize: 16 }}>{item.name}</Text>
+                        <Text style={{ color: 'grey' }}>{item.quantity} units</Text>
+                        </View>
+
+                        <View style={{ marginLeft: 'auto', marginTop: 15, marginRight: 25 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>₹ {item.unitPrice}</Text>
+                        </View>
+                    </View>
+                    ))}
             </View>
             <View style={{borderBottomColor:'#b6b6b645', borderBottomWidth:7, marginTop:15}}></View>
             <View style={{backgroundColor:'white'}}>

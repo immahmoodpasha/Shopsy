@@ -19,9 +19,7 @@ const ProductCard = () => {
     return(
         <View style={styles.ProductCard}>
             <View testID="ImageContainer" style={styles.ImageContainer}>
-                <Image source={{
-                    uri: 'https://m.media-amazon.com/images/I/71S6oQqVa5L._UF1000,1000_QL80_.jpg'
-                }}
+                <Image source={{uri: product.image}}
                 style={{width: '100%', height: '100%', borderRadius: 20}}
                 />
                 {isAdded? <View style={[styles.AddButton, {paddingVertical: '2%', paddingHorizontal: '8%',backgroundColor: '#8404aeff', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '20%', maxWidth: '80%'}]}>
@@ -36,10 +34,10 @@ const ProductCard = () => {
             <View style={styles.ProductDetails}>
                 <View style={{flexDirection: 'row', alignItems: 'baseline'}}>
                     <Text style={{fontSize: 12, fontWeight: 500, color: 'black'}}>&#8377; </Text>
-                    <Text style={{fontSize: 16, fontWeight: 800}}>30</Text>
+                    <Text style={{fontSize: 16, fontWeight: 800}}>{product.price}</Text>
                 </View>
-                <Text style={{fontSize: 11, fontWeight: 600, color: 'rgb(175, 83, 255)', backgroundColor: 'rgba(234, 216, 250, 0.83)', borderRadius: 10, paddingHorizontal: '5%', width: '35%'}}>250g</Text>
-                <Text style={{fontSize: 15, fontWeight: 500, color: 'rgba(0, 0, 0, 0.83)', width: '100%'}}>Carrot (Ooty Carrot - Raw)</Text>
+                <Text style={{fontSize: 11, fontWeight: 600, color: 'rgb(175, 83, 255)', backgroundColor: 'rgba(234, 216, 250, 0.83)', borderRadius: 10, paddingHorizontal: '5%', width: '35%'}}>product.quantity</Text>
+                <Text style={{fontSize: 15, fontWeight: 500, color: 'rgba(0, 0, 0, 0.83)', width: '100%'}}>{product.name}</Text>
             </View>
         </View>
     );

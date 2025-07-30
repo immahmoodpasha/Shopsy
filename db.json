@@ -17,6 +17,30 @@
       "Category": "Dairy"
     },
     {
+      "id": "20",
+      "name": "Amul Fresh Cream",
+      "price": 95,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/284346_8-amul-fresh-cream.jpg",
+      "quantity": "250 ml",
+      "Category": "Dairy"
+    },
+    {
+      "id": "21",
+      "name": "Nestle Everyday Dairy Whitener",
+      "price": 180,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/265934_17-nestle-everyday-dairy-whitener.jpg",
+      "quantity": "400 g",
+      "Category": "Dairy"
+    },
+    {
+      "id": "22",
+      "name": "Amul Cheese Slices",
+      "price": 140,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/104866_10-amul-cheese-slices.jpg",
+      "quantity": "200 g",
+      "Category": "Dairy"
+    },
+    {
       "id": "7",
       "name": "Onion (Loose)",
       "price": 69.75,
@@ -41,6 +65,38 @@
       "Category": "Vegetables"
     },
     {
+      "id": "23",
+      "name": "Carrot Orange (Loose)",
+      "price": 45.00,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10000070_21-fresho-carrot-orange.jpg",
+      "quantity": "500 g",
+      "Category": "Vegetables"
+    },
+    {
+      "id": "24",
+      "name": "Cucumber",
+      "price": 30.50,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10000096_22-fresho-cucumber.jpg",
+      "quantity": "500 g",
+      "Category": "Vegetables"
+    },
+    {
+      "id": "25",
+      "name": "Spinach (Loose)",
+      "price": 25.00,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10000277_10-fresho-spinach.jpg",
+      "quantity": "250 g",
+      "Category": "Vegetables"
+    },
+    {
+      "id": "26",
+      "name": "Capsicum Green (Loose)",
+      "price": 55.00,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10000067_20-fresho-capsicum-green.jpg",
+      "quantity": "500 g",
+      "Category": "Vegetables"
+    },
+    {
       "id": "10",
       "name": "Chicken Breast - Boneless",
       "price": 605,
@@ -55,6 +111,70 @@
       "image": "https://www.bigbasket.com/media/uploads/p/l/40072320_2-fresho-farm-eggs-table-tray-medium-antibiotic-residue-free.jpg",
       "quantity": "12 pcs",
       "Category": "Nonveg"
+    },
+    {
+      "id": "27",
+      "name": "Rohu Fish - Medium Pieces",
+      "price": 280,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40003050_2-fresho-rohu-fish-medium-pieces.jpg",
+      "quantity": "500 g",
+      "Category": "Nonveg"
+    },
+    {
+      "id": "28",
+      "name": "Mutton - Curry Cut",
+      "price": 850,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10001004_7-fresho-mutton-curry-cut.jpg",
+      "quantity": "500 g",
+      "Category": "Nonveg"
+    },
+    {
+      "id": "29",
+      "name": "Prawns - Medium",
+      "price": 450,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40003061_2-fresho-prawns-medium.jpg",
+      "quantity": "250 g",
+      "Category": "Nonveg"
+    },
+    {
+      "id": "30",
+      "name": "Himalaya Gentle Baby Shampoo",
+      "price": 150,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40072346_15-himalaya-gentle-baby-shampoo.jpg",
+      "quantity": "200 ml",
+      "Category": "Baby Care"
+    },
+    {
+      "id": "31",
+      "name": "Pampers Baby Dry Diapers - Large",
+      "price": 999,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40120197_1-pampers-baby-dry-diapers-large.jpg",
+      "quantity": "46 pcs",
+      "Category": "Baby Care"
+    },
+    {
+      "id": "32",
+      "name": "Johnson's Baby Powder",
+      "price": 120,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/10000377_21-johnsons-baby-powder.jpg",
+      "quantity": "200 g",
+      "Category": "Baby Care"
+    },
+    {
+      "id": "33",
+      "name": "Mamaearth Milky Soft Baby Lotion",
+      "price": 399,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/40209377_1-mamaearth-milky-soft-baby-lotion-with-oat-milk-calendula-for-babys-delicate-skin.jpg",
+      "quantity": "400 ml",
+      "Category": "Baby Care"
+    },
+    {
+      "id": "34",
+      "name": "MamyPoko Pants Style Diapers - Medium",
+      "price": 750,
+      "image": "https://www.bigbasket.com/media/uploads/p/l/20000858_6-mamypoko-pants-style-diapers-medium.jpg",
+      "quantity": "58 pcs",
+      "Category": "Baby Care"
     },
     {
       "id": "13",
