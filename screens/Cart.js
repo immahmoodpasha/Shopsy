@@ -3,67 +3,36 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState, useEffect } from 'react';
 import CartItemCard from '../components/CartItemCard';
 import BillSummary from '../components/BillSummary';
+import { useCart } from '../context/CartContext';
+import axios from 'axios';
 
 const Cart = () => {
-    const [quantity, setQuantity] = useState(1);
-    const [cartItems, setCartItems] = useState([]);
+    const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
+    const itemTotal = cart.reduce((total, item) => total + item.price * item.count, 0);
+    const deliveryFee = 'Free';
 
-    const dummyCartItems = [
-        {
-            id: '1',
-            name: 'Carrot 500g',
-            category: 'Vegetables',
-            unitPrice: 3.99,
-            image: 'https://as2.ftcdn.net/v2/jpg/01/59/33/87/1000_F_159338719_7K6bGhz3qFBIpGMD4rwhLy8JWOCQKfRs.jpg',
-            quantity: 1,
-        },
-        {
-            id: '2',
-            name: 'Tomato 1kg',
-            category: 'Vegetables',
-            unitPrice: 4.99,
-            image: 'https://cdn.pixabay.com/photo/2016/02/23/17/39/tomatoes-1218054_960_720.jpg',
-            quantity: 3,
+    const handleCheckout = async () => {
+        const resToBack = cart.map(item =>({
+            productId: item.id,
+            quantity: item.count,
+            unitPrice: item.price
+        }));
+        try {
+            const response = await axios.post ('http://192.168.0.129:3113/orders',{
+                items: resToBack
+            });
+            if (response.status === 201 || response.status === 200) {
+                console.log('order placed successfully: ', response.data);
+                clearCart();
+            }
+            else {
+                console.warn('Something went wrong: ', response.status);
+            }
         }
-    ];
-
-    useEffect(() => {
-        const dummyStorage = async () => {
-            const exist = await AsyncStorage.getItem('cart');
-            if (!exist) {
-                await AsyncStorage.setItem('cart', JSON.stringify(dummyCartItems));
-            }
-        };
-        dummyStorage();
-    }, []);
-    useEffect(() => {
-        const getCart = async () => {
-            const data = await AsyncStorage.getItem('cart');
-            if (data) {
-                setCartItems(JSON.parse(data));
-            }
-        };
-        getCart();
-    }, []);
-
-    const updateQuantity = async (id, delta) => {
-    const updated = cartItems.map(item =>
-        item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-    );
-
-    setCartItems(updated);
-    await AsyncStorage.setItem('cart', JSON.stringify(updated));
-    };
-
-    const removeItem = async (id) => {
-    const filtered = cartItems.filter(item => item.id !== id);
-    setCartItems(filtered);
-    await AsyncStorage.setItem('cart', JSON.stringify(filtered));
-    };
-
-    const itemTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-    const deliveryFee = 3;
-
+        catch (error) {
+            console.error('checkout error: ', error.message);
+        }
+    }
   return (
     <View style={styles.container}>
       <View style={styles.cartTitCont}>
@@ -71,19 +40,19 @@ const Cart = () => {
       </View>
       <View style={styles.itemsCont}>
         <ScrollView>
-            {cartItems.map((item, index) => (
+            {cart.map((item, index) => (
                 <CartItemCard
                     key={item.id}
                     item={item}
                     updateQuantity={updateQuantity}
-                    removeItem={removeItem}
+                    removeFromCart={removeFromCart}
                 />
                 ))}
         </ScrollView>
       </View>
      <BillSummary itemTotal={itemTotal} deliveryFee={deliveryFee} />
       <View>
-        <TouchableOpacity style={styles.checkoutBtn}>
+        <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckout}>
             <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'white'}}>Checkout</Text>
         </TouchableOpacity>
       </View>

@@ -1,7 +1,19 @@
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import React from 'react';
+import { useCart } from '../context/CartContext';
 
-const CartItemCard = ({ item, updateQuantity, removeItem }) => {
+const CartItemCard = ({ item, updateQuantity, removeFromCart }) => {
+  const handleDecrement = () => {
+    if (item.count === 1){
+      removeFromCart(item.id)
+    }
+    else {
+      updateQuantity(item.id, item.count-1)
+    }
+  }
+  const handleIncrement = () => {
+    updateQuantity(item.id, item.count+1)
+  }
   return (
     <View style={styles.itemCard}>
       <View style={styles.topItemCard}>
@@ -14,21 +26,21 @@ const CartItemCard = ({ item, updateQuantity, removeItem }) => {
         <View style={styles.ordContent}>
           <Text style={{fontSize: 15}}>{item.name}</Text>
           <Text style={{fontSize: 11}}>Category: {item.category}</Text>
-          <Text style={{fontSize: 11}}>Unit Price: ${item.unitPrice}</Text>
-          <Text style={{fontSize: 11}}>Total Price: ${(item.unitPrice * item.quantity).toFixed(2)}</Text>
+          <Text style={{fontSize: 11}}>Unit Price: {'\u20B9'}{(item.price).toFixed(2)}</Text>
+          <Text style={{fontSize: 11}}>Total Price: {'\u20B9'}{(item.price * item.count).toFixed(2)}</Text>
         </View>
       </View>
       <View style={styles.butItemCard}>
         <View style={styles.qtyBox}>
-          <TouchableOpacity onPress={() => updateQuantity(item.id, -1)}>
+          <TouchableOpacity onPress={handleDecrement}>
             <Text style={styles.qtyText}>-</Text>
           </TouchableOpacity>
-          <Text style={styles.qtyText}>{item.quantity}</Text>
-          <TouchableOpacity onPress={() => updateQuantity(item.id, 1)}>
+          <Text style={styles.qtyText}>{item.count}</Text>
+          <TouchableOpacity onPress={handleIncrement}>
             <Text style={styles.qtyText}>+</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.but} onPress={() => removeItem(item.id)}>
+        <TouchableOpacity style={styles.but} onPress={() => removeFromCart(item.id)}>
           <Text style={{textAlign: 'center', color: '#8404ae'}}>Remove</Text>
         </TouchableOpacity>
       </View>

@@ -50,8 +50,7 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  // Update the count of a specific product.
-  // If count becomes 0, remove the product from the cart.
+  
   const updateQuantity = (id, newCount) => {
     setCart((prevCart) =>
       newCount <= 0
@@ -62,7 +61,7 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Clear the entire cart.
+  
   const clearCart = () => setCart([]);
 
   return (

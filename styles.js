@@ -60,18 +60,16 @@ export const styles = StyleSheet.create({
         padding: '5%',
         flex: 1
     },
-    Header:{
-        backgroundColor: '#8404ae',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: '5%',
-        paddingHorizontal: '5%',
-        borderRadius: 30,
-        alignItems: 'center',
-        marginBottom: '1%'
-    },
+    Header: {
+  backgroundColor: '#8404ae',
+  width: '100%',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  paddingVertical: 12,
+  paddingHorizontal: 16,
+  alignItems: 'center',
+  marginBottom: 12, // or remove if you want flush layout
+},
     AdsCarousel:{
         borderRadius: 20,
         alignItems: 'center'
