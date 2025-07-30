@@ -45,7 +45,7 @@ function OrderHistoryCard ({orders}){
             </View> */}
             <View style={{display:'flex', justifyContent:'center', alignItems:'center',marginBottom:10, marginTop:10}}>
                 <Text style={{fontSize:15, fontWeight:300, color:'grey'}}>Ordered:
-                     {orders.orderplaced},{orders.orderplacedtime} . Bill Total: ₹{orders.billing.totalBill} </Text>
+                     {orders.orderplaced},{orders.orderplacedtime} . Bill Total: ₹{orders.totalBill} </Text>
             </View>
         </View>
         </TouchableOpacity>

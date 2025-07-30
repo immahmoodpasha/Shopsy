@@ -25,7 +25,7 @@ const CartItemCard = ({ item, updateQuantity, removeFromCart }) => {
         </View>
         <View style={styles.ordContent}>
           <Text style={{fontSize: 15}}>{item.name}</Text>
-          <Text style={{fontSize: 11}}>Category: {item.category}</Text>
+          <Text style={{fontSize: 11}}>Category: {item.Category}</Text>
           <Text style={{fontSize: 11}}>Unit Price: {'\u20B9'}{(item.price).toFixed(2)}</Text>
           <Text style={{fontSize: 11}}>Total Price: {'\u20B9'}{(item.price * item.count).toFixed(2)}</Text>
         </View>
@@ -54,8 +54,9 @@ const styles = StyleSheet.create({
     itemCard: {
         backgroundColor: 'white',
         display: 'flex',
-        height: 120,
+        height: 125,
         margin: 10,
+        padding: 5,
         borderRadius: 7.5
     },
     topItemCard: {
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     image: {
         // borderWidth: 1,
         width: '25%',
-        height: '80%',
+        height: '87.5%',
         margin: 5,
         display: 'flex',
         alignSelf: 'center',
