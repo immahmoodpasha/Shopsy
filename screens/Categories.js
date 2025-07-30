@@ -7,11 +7,9 @@ import {
   TouchableOpacity,
   FlatList,
   StatusBar,
-  SafeAreaView,
-  Image
+  Image,
+  ScrollView,
 } from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Entypo from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import Card from '../components/Card';
@@ -30,14 +28,12 @@ const categories = [
 ];
 
 const Categories = ({ route }) => {
-
   const { category } = route.params || {};
   const [selectedCategory, setSelectedCategory] = useState(category || 'All Items');
   const [products, setProducts] = useState([]);
 
-
   useEffect(() => {
-    axios.get('http://192.168.0.129:3113/products')
+    axios.get('http://10.157.223.58:3113/products')
       .then((response) => {
         setProducts(response.data);
       })
@@ -56,14 +52,17 @@ const Categories = ({ route }) => {
     selectedCategory === 'All Items'
       ? products
       : products.filter(
-        (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
-      );
+          (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
+        );
 
+  return (
+    <View style={{ flex: 1, backgroundColor:'#f0e6ff', }}>
+      {/* Sticky Header Area */}
+      <View style={styles.stickyHeader}>
+        <View style={{ marginTop: StatusBar.currentHeight }}>
+          <Header />
+        </View>
 
-  const renderHeader = () => (
-    <View style={{ marginTop: StatusBar.currentHeight, }}>
-      <Header />
-      <View style={styles.header}>
         {/* Search Box */}
         <View style={styles.searchContainer}>
           <TextInput
@@ -85,32 +84,28 @@ const Categories = ({ route }) => {
           contentContainerStyle={styles.iconsContainer}
           renderItem={({ item }) => {
             const isSelected = selectedCategory === item.label;
-           return (
-            <TouchableOpacity
-              style={[styles.iconDiv,isSelected&&styles.glowEffect]}
-              onPress={() => setSelectedCategory(item.label)} 
-            >
-              <Image
-                source={item.image}
-                style={styles.categoryImage}
-              />
-              <Text style={[styles.iconText,isSelected&&{color:"violet"}]}>{item.label}</Text>
-            </TouchableOpacity>
-          )
+            return (
+              <TouchableOpacity
+                style={[styles.iconDiv, isSelected && styles.glowEffect]}
+                onPress={() => setSelectedCategory(item.label)}
+              >
+                <Image
+                  source={item.image}
+                  style={styles.categoryImage}
+                />
+                <Text style={[styles.iconText, isSelected && { color: "violet" }]}>
+                  {item.label}
+                </Text>
+              </TouchableOpacity>
+            );
           }}
         />
       </View>
-    </View>
 
-  );
-
-  return (
-    <View style={{ flex: 1 }}>
+      {/* Scrollable Product List */}
       <FlatList
         data={filteredProducts}
         keyExtractor={(item, index) => index.toString()}
-        ListHeaderComponent={renderHeader}
-        
         contentContainerStyle={styles.listContent}
         numColumns={3}
         columnWrapperStyle={{ justifyContent: 'flex-start', gap: 5 }}
@@ -124,25 +119,23 @@ const Categories = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: PRIMARY_COLOR,
-    textAlign: 'center',
-    marginVertical: 20,
-  },
-  header: {
-    paddingHorizontal: 10,
+  stickyHeader: {
+    backgroundColor: '#fff',
+    zIndex: 10,
+    elevation: 3,
+    paddingBottom: 5,
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 5,
+    borderRadius: 10,
     paddingHorizontal: 10,
     backgroundColor: '#fff',
-    marginBottom: 15,
+    marginBottom: 10,
+    marginHorizontal: 10,
+    marginTop: 10,
   },
   input: {
     flex: 1,
@@ -150,38 +143,46 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   iconsContainer: {
-    paddingBottom: 20,
+    paddingHorizontal: 10,
+    paddingBottom: 10,
   },
   iconDiv: {
     marginRight: 20,
     alignItems: 'center',
   },
-  iconStyle: {
-    alignSelf: 'center',
+  glowEffect: {
+    backgroundColor: '#f0e6ff',
+    borderRadius: 10,
+    padding: 5,
+    shadowColor: '#9400D3',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
+    elevation: 6,
   },
   iconText: {
     textAlign: 'center',
     fontSize: 10,
-    marginTop: 10,
+    marginTop: 5,
     fontWeight: 'bold',
   },
+  categoryImage: {
+    width: 60,
+    height: 60,
+    resizeMode: 'contain',
+    borderRadius: 100,
+  },
   listContent: {
+    
     paddingHorizontal: 10,
     paddingBottom: 100,
+    paddingTop: 10,
   },
   emptyText: {
     textAlign: 'center',
     marginTop: 30,
     color: '#999',
   },
-  categoryImage: {
-  width: 60,
-  height: 60,
-  marginBottom: 0,
-  backgroundColor:"transparent",
-  resizeMode:'contain',
-  borderRadius:100
-},
 });
 
 export default Categories;
