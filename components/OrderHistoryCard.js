@@ -57,8 +57,10 @@ const styles = StyleSheet.create({
         margin:10,
         marginLeft:20,
         marginRight:20,
-        borderWidth: 0.16,
-        borderRadius:10,
+        borderWidth: 1,
+        borderColor:'#8404ae',
+        borderRadius:11,
+        borderBottomWidth:5,
         backgroundColor:'white'
     },
     orderscardheader: {
@@ -70,6 +72,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#7e55b12d',
         padding:7,
         borderRadius:10,
+        borderColor:'#8404ae'
     },
     orderscardbody: {
         marginTop:5,
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
         gap:10
     },
     OrderHistoryQuantityDiv: {
-        backgroundColor:'#595e9c0d', 
+        backgroundColor:'#7e55b11c', 
         width:35, 
         height:25, 
         display:'flex', 

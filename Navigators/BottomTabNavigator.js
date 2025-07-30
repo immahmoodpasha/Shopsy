@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Categories from '../screens/Categories';
 import Dashboard from '../screens/Dashboard';
 import OrderHistory from '../screens/OrderHistory';
-import Profile from '../screens/Profile';
+import UserProfile from '../screens/UserProfile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -38,7 +38,7 @@ const BottomTabNavigator = () => {
       <Tab.Screen name="Categories" component={Categories} />
       <Tab.Screen name="Dashboard" component={Dashboard} />
       <Tab.Screen name="OrderHistory" component={OrderHistory} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Profile" component={UserProfile} />
     </Tab.Navigator>
   );
 };
