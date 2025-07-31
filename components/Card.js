@@ -15,7 +15,8 @@ const Card = ({ product }) => {
       name: product.name,
       price: product.price,
       quantity: product.quantity,
-      Category: product.Category
+      Category: product.Category,
+      image:product.image,
     }, 1);
     // clearCart();
   };

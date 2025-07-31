@@ -1,61 +1,67 @@
 import { StyleSheet, Text, View, StatusBar, Image, TouchableOpacity, ScrollView } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useState, useEffect } from 'react';
 import CartItemCard from '../components/CartItemCard';
 import BillSummary from '../components/BillSummary';
 import { useCart } from '../context/CartContext';
-import axios from 'axios';
+import { Entypo, MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Cart = () => {
+    const navigation = useNavigation();
     const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
     const itemTotal = cart.reduce((total, item) => total + item.price * item.count, 0);
     const deliveryFee = 'Free';
 
-    const handleCheckout = async () => {
-        const resToBack = cart.map(item =>({
-            productId: item.id,
-            quantity: item.count,
-            unitPrice: item.price
-        }));
-        try {
-            const response = await axios.post ('http://192.168.73.36:3113/orders',{
-                items: resToBack
-            });
-            if (response.status === 201 || response.status === 200) {
-                console.log('order placed successfully: ', response.data);
-                clearCart();
-            }
-            else {
-                console.warn('Something went wrong: ', response.status);
-            }
-        }
-        catch (error) {
-            console.error('checkout error: ', error.message);
-        }
-    }
   return (
     <View style={styles.container}>
-      <View style={styles.cartTitCont}>
-        <Text style={styles.cartTit}>My Cart</Text>
+      <View style={styles.topCont}>
+        <View style={styles.cartTitCont}>
+            <TouchableOpacity>
+                <Entypo name='chevron-left' style={[styles.cartTit,{fontSize: 30, marginRight: 5}]}/>
+            </TouchableOpacity>
+            <Text style={styles.cartTit}>My Cart</Text>
+        </View>
+        {cart.length>0 && (
+            <>
+                <View style={styles.addMore}>
+                <TouchableOpacity onPress={() => navigation.navigate('MainApp')}>
+                    <Text style={{fontWeight:'bold', color: 'white'}}>Add More</Text>
+                </TouchableOpacity>
+        </View>
+            </>
+        )}
       </View>
       <View style={styles.itemsCont}>
-        <ScrollView>
-            {cart.map((item, index) => (
-                <CartItemCard
-                    key={item.id}
-                    item={item}
-                    updateQuantity={updateQuantity}
-                    removeFromCart={removeFromCart}
-                />
+        {cart.length===0 ? (
+            <View style={styles.empCartCont}>
+                <View style={styles.empCartIcon}>
+                    <MaterialIcons name='add-shopping-cart' size={80} style={{color: 'gray'}}/>
+                </View>
+                <View>
+                    <Text style={{fontSize: 17.5, fontWeight: 'bold'}}>Oops.....Your Cart is Empty!!</Text>
+                </View>
+                <TouchableOpacity style={styles.browProdBtn} onPress={() => navigation.navigate('MainApp')}>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>Browse Products</Text>
+                </TouchableOpacity>
+            </View>
+        ) : (
+            <ScrollView showsVerticalScrollIndicator={false}>
+                {cart.map((item, index) => (
+                    <CartItemCard
+                        key={item.id}
+                        item={item}
+                        updateQuantity={updateQuantity}
+                        removeFromCart={removeFromCart}
+                    />
                 ))}
         </ScrollView>
+        )}
       </View>
-     <BillSummary itemTotal={itemTotal} deliveryFee={deliveryFee} />
-      <View>
-        <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckout}>
-            <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'white'}}>Checkout</Text>
-        </TouchableOpacity>
-      </View>
+     {cart.length>0 && (
+        <View style={styles.bottomCont}>
+            <BillSummary itemTotal={itemTotal} deliveryFee={deliveryFee} />
+        </View>
+     )}
     </View>
   )
 }
@@ -65,32 +71,86 @@ export default Cart
 const styles = StyleSheet.create({
     container: {
         marginTop: StatusBar.currentHeight,
-        margin: 10,
+        padding: 7.5,
         display: 'flex',
         flexDirection:'column',
-        justifyContent:'space-between'
+        paddingBottom: '57.5%'
+        // justifyContent:'space-between',
+    },
+    topCont: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 5
+    },
+    cartTitCont: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 5
+    },
+    addMore: {
+        marginBottom: 5,
+        marginRight: 5,
+        borderRadius: 7.5,
+        padding: 5,
+        backgroundColor:'#8404ae',
     },
     cartTit: {
         color: '#8404ae',
         fontWeight: 'bold',
-        fontSize: 20, 
-        marginBottom: 10
+        fontSize: 20
     },
     itemsCont: {
-        backgroundColor: '#CFCFCF',
-        height: '60%',
+        
+        height: '93.5%',
         margin: 10,
         display: 'flex',
         marginTop: 0,
         marginBottom: 0
     },
-    checkoutBtn: {
-        margin: 10,
-        backgroundColor:'#8404ae',
+    empCartCont: {
+        backgroundColor: 'white',
+        width: '100%',
+        height: '42.5%',
+        display: 'flex',
+        alignSelf: 'center',
+        marginTop: '7.5%',
+        borderRadius: 10,
+        alignItems: 'center',
+        padding: 20,
+        justifyContent: 'space-between'
+    },
+    empCartIcon: {
+        width: '35%',
+        height:'52.5%',
+        backgroundColor: '#CFCFCF',
+        borderRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    browProdBtn: {
+        backgroundColor: '#8404ae',
+        width: '60%',
         height: '20%',
+        borderRadius: 7.5,
         display: 'flex',
         justifyContent: 'center',
-        borderRadius: 7.5
-    },
-    
+        alignItems: 'center'
+    }
+    ,
+    bottomCont: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'white',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        paddingTop: 10,
+        paddingBottom: 20,
+        
+    }
 })

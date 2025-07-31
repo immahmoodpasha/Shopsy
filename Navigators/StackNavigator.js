@@ -7,7 +7,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import Cart from '../screens/Cart';
 import OrderSummary from '../screens/OrderSummary'
 import EditProfile from '../screens/EditProfile';
-
+import OrderPlaced from '../screens/OrderPlaced';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,8 +19,9 @@ const StackNavigator = () => {
       <Stack.Screen name="Signin" component={Signin} />
       <Stack.Screen name="Cart" component={Cart}/>
       <Stack.Screen name="MainApp" component={BottomTabNavigator} />
-      <Stack.Screen name="OrderSummary" component={OrderSummary}/>
+      <Stack.Screen name='OrderSummary' component={OrderSummary} />
       <Stack.Screen name="EditProfile" component={EditProfile}/>
+      <Stack.Screen name='OrderPlaced' component={OrderPlaced} />
     </Stack.Navigator>
   );
 };

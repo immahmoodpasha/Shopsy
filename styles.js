@@ -57,18 +57,18 @@ export const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        padding: '5%',
         flex: 1
     },
     Header: {
-  backgroundColor: '#8404ae',
-  width: '100%',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  paddingVertical: 12,
-  paddingHorizontal: 16,
-  alignItems: 'center',
-  marginBottom: 12, // or remove if you want flush layout
+        backgroundColor: '#8404ae',
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: '5%',
+        paddingTop: '8%',
+        paddingHorizontal: '6%',
+        alignItems: 'center',
+        marginBottom: 12, // or remove if you want flush layout
 },
     AdsCarousel:{
         borderRadius: 20,
@@ -91,10 +91,6 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: '3%',
         paddingVertical: '1%',
-        alignSelf: 'flex-start',
-        marginTop: '4%'
-
-
     },
     CategoryList: {
         paddingVertical: '2%',
@@ -103,6 +99,4 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1
     }
-
-
 })

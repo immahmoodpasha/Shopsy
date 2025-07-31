@@ -33,8 +33,8 @@ const Dashboard = ({navigation}) => {
     return(
         <View style={styles.Dashboard}>
             <Header/>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={{color: '#8404ae', fontSize: 20, fontWeight: '700', padding: '3%', paddingHorizontal: '2%'}}>Welcome User</Text>
+            <ScrollView style={{paddingHorizontal: '5%'}} showsVerticalScrollIndicator={false}>
+                <Text style={{color: '#8404ae', fontSize: 20, fontWeight: '700', paddingVertical: '3%'}}>Welcome User</Text>
                 <AdsCarousel />
                 <View style={styles.CategorySection}>
                     {categoriesArray.map((category, index)=>{
@@ -44,16 +44,19 @@ const Dashboard = ({navigation}) => {
                         }
                         return(
                             <View key={index}>
-                                <View style={styles.CategoryTitle}>
-                                    <Text style={{color: 'white', fontWeight: '800', fontSize: 20}}>{category}</Text>
+                                <View style={{display:'flex', flexDirection: 'row', alignItems: 'center', marginTop: '4%', justifyContent: 'space-between'}}>
+                                    <View style={styles.CategoryTitle}>
+                                        <Text style={{color: 'white', fontWeight: '800', fontSize: 20}}>{category}</Text>
+                                    </View>
+                                    <TouchableOpacity onPress={()=>navigation.navigate('Categories', {category})}>
+                                        <Text size={30} style={{color: '#8404ae', paddingLeft: '3%'}}>View More</Text>
+                                    </TouchableOpacity>
                                 </View>
+                                
                                 <View style={styles.CategoryList}>
-                                    <FlatList contentContainerStyle={{gap:5}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,5)} renderItem={({item, index})=>(
+                                    <FlatList contentContainerStyle={{gap:5}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,6)} renderItem={({item, index})=>(
                                         <Card product={item}/>
                                     )}/>
-                                    <TouchableOpacity onPress={()=>navigation.navigate('Categories', {category})}>
-                                        <Icon name="circle-arrow-right" size={30} color="#8404ae" paddingLeft="3%" />
-                                    </TouchableOpacity>
                                 </View>
                                 
                             </View>
