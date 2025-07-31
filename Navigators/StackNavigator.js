@@ -8,6 +8,7 @@ import Cart from '../screens/Cart';
 import OrderSummary from '../screens/OrderSummary'
 import EditProfile from '../screens/EditProfile';
 
+
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
@@ -18,7 +19,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Signin" component={Signin} />
       <Stack.Screen name="Cart" component={Cart}/>
       <Stack.Screen name="MainApp" component={BottomTabNavigator} />
-      
+      <Stack.Screen name="OrderSummary" component={OrderSummary}/>
       <Stack.Screen name="EditProfile" component={EditProfile}/>
     </Stack.Navigator>
   );

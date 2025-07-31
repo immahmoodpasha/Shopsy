@@ -18,7 +18,7 @@ const Cart = () => {
             unitPrice: item.price
         }));
         try {
-            const response = await axios.post ('http://192.168.0.129:3113/orders',{
+            const response = await axios.post ('http://192.168.73.36:3113/orders',{
                 items: resToBack
             });
             if (response.status === 201 || response.status === 200) {
