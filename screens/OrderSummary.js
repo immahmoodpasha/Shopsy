@@ -61,7 +61,7 @@ function OrderSummary(){
             
             <View style={styles.ImageContainer}>
                 {order.items.map((item, index) => (
-                    <View key={item.name + index} style={{display: 'flex', flexDirection: 'row'}}>
+                    <View key={item.name + index} style={{ display: 'flex', flexDirection: 'row' }}>
                         <View>
                         <Image
                             source={{ uri: item.uri }}

@@ -27,8 +27,8 @@ function OrderHistoryCard ({orders}){
             </View>
             <ScrollView style={styles.scrollItemsSection}>
             <View style={{marginTop:10}}>
-                {orders.items.map((item) => (
-                    <View key={item.name} style={styles.orderscardbody}>
+                {orders.items.map((item, index) => (
+                    <View key={`${item.name}-${index}`} style={styles.orderscardbody}>
                         <View style={styles.OrderHistoryQuantityDiv}>
                             <Text>X {item.quantity}</Text>
                         </View>
@@ -47,7 +47,7 @@ function OrderHistoryCard ({orders}){
             </View> */}
             <View style={{display:'flex', justifyContent:'center', alignItems:'center',marginBottom:10, marginTop:10}}>
                 <Text style={{fontSize:15, fontWeight:300, color:'grey'}}>Ordered:
-                     {orders.orderplaced},{orders.orderplacedtime} . Bill Total: ₹{orders.totalBill} </Text>
+                     {orders.orderplaced},{orders.orderplacedtime} . Bill Total: ₹{orders.billing?.totalBill} </Text>
             </View>
         </View>
         </TouchableOpacity>
