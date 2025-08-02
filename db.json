@@ -509,32 +509,92 @@
       }
     },
     {
-      "id": "e334",
+      "id": "ORD1011",
+      "status": "Delivered",
+      "name": "Mahavadi Koushik",
+      "mobile": "+91 6300664663",
+      "address": "10-3-45 Shyam Nagar, MG Road, Hyderabad, 500001",
+      "orderplaced": "28 Jul 2025",
+      "orderplacedtime": "04:15pm",
+      "orderreceived": "28 Jul 2025",
+      "orderreceivedat": "05:10pm",
       "items": [
         {
-          "productId": "11",
-          "quantity": 2,
-          "unitPrice": 110
+          "name": "Sunflower Oil (1L)",
+          "quantity": 1,
+          "unitPrice": 150,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
         },
         {
-          "productId": "5",
+          "name": "Wheat Flour (5kg)",
           "quantity": 1,
-          "unitPrice": 28
+          "unitPrice": 250,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
         },
+        {
+          "name": "Basmati Rice (1kg)",
+          "quantity": 1,
+          "unitPrice": 120,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Toor Dal (1kg)",
+          "quantity": 1,
+          "unitPrice": 160,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Sugar (1kg)",
+          "quantity": 1,
+          "unitPrice": 50,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Salt (1kg)",
+          "quantity": 1,
+          "unitPrice": 20,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Dish Wash Bar",
+          "quantity": 2,
+          "unitPrice": 25,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Hand Wash",
+          "quantity": 1,
+          "unitPrice": 75,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Toothpaste",
+          "quantity": 1,
+          "unitPrice": 90,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        },
+        {
+          "name": "Shampoo (180ml)",
+          "quantity": 1,
+          "unitPrice": 180,
+          "uri": "https://www.smartquick.in/_next/image?url=https%3A%2F%2Fsmartquick.in%2Fce13a7f7d194e7a4c936441c9.png&w=640&q=100"
+        }
+      ],
+      "totalItems": 11,
+      "billing": {
+        "itemTotal": 1145,
+        "deliveryFee": 40,
+        "PlatformFee": 6,
+        "totalBill": 1191
+      }
+    },
+    {
+      "id": "b735",
+      "items": [
         {
           "productId": "6",
           "quantity": 1,
           "unitPrice": 255
-        },
-        {
-          "productId": "7",
-          "quantity": 1,
-          "unitPrice": 69.75
-        },
-        {
-          "productId": "9",
-          "quantity": 1,
-          "unitPrice": 26.9
         }
       ]
     },
@@ -1247,5 +1307,11 @@
         }
       ]
     }
-  ]
+  ],
+  "userProfile": {
+    "name": "Mahavadi Koushik",
+    "email": "mahavadhhik@gmail.com",
+    "number": "6300664663",
+    "address": "43-141-4 ajith singh nagar, vijayawada"
+  }
 }

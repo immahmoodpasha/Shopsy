@@ -22,7 +22,7 @@
         const [email, setEmail] = useState(profileData.email ||"")
         const [number, setNumber] = useState(profileData.number || "")
         const [address, setAddress] = useState(profileData.address || "")
-        const url= 'http://192.168.43.182:3113/userProfile'
+        const url= 'http://192.168.73.36:3113/userProfile'
 
         const handleSave = async ()=>{
             const newData = {name,email,number,address}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet,Image, TouchableOpacity, Button } from 'react-native';
+import { View, Text, StyleSheet,Image, TouchableOpacity, Button, ScrollView } from 'react-native';
 import check from '../assets/check.png'
 import failed from '../assets/failed.png'
 import { useNavigation } from '@react-navigation/native';
@@ -25,9 +25,10 @@ function OrderHistoryCard ({orders}){
                 }
 
             </View>
+            <ScrollView style={styles.scrollItemsSection}>
             <View style={{marginTop:10}}>
-                {orders.items.map((item) => (
-                    <View key={item.name} style={styles.orderscardbody}>
+                {orders.items.map((item, index) => (
+                    <View key={`${item.name}-${index}`} style={styles.orderscardbody}>
                         <View style={styles.OrderHistoryQuantityDiv}>
                             <Text>X {item.quantity}</Text>
                         </View>
@@ -37,6 +38,7 @@ function OrderHistoryCard ({orders}){
                     </View>
                     ))}
             </View>
+            </ScrollView>
             <View style={{borderBottomColor:'grey', borderBottomWidth:0.40, borderStyle:'dashed'}}></View>
             {/* <View style={{display:'flex', justifyContent:"center", alignItems:'center'}}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('OrderSummary',{order:orders})}>
@@ -45,7 +47,7 @@ function OrderHistoryCard ({orders}){
             </View> */}
             <View style={{display:'flex', justifyContent:'center', alignItems:'center',marginBottom:10, marginTop:10}}>
                 <Text style={{fontSize:15, fontWeight:300, color:'grey'}}>Ordered:
-                     {orders.orderplaced},{orders.orderplacedtime} . Bill Total: ₹{orders.totalBill} </Text>
+                     {orders.orderplaced},{orders.orderplacedtime} . Bill Total: ₹{orders.billing?.totalBill} </Text>
             </View>
         </View>
         </TouchableOpacity>
@@ -101,6 +103,9 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         backgroundColor:'#7e55b154'
+    },
+    scrollItemsSection:{
+        maxHeight:130,
     }
 }
 )
