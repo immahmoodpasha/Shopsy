@@ -45,14 +45,17 @@ const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
         </View>
         <View style={styles.row}>
           <Text>Delivery Fee</Text>
-          <Text style={{color: 'green'}}> {deliveryFee}</Text>
+          <Text>
+            <Text style={{ textDecorationLine: 'line-through', color: 'gray', alignItems: 'center' }}>{'\u20B9'}50</Text>
+            <Text style={{ color: 'green', fontWeight: 'bold' }}> {deliveryFee}</Text>
+          </Text>
         </View>
       </View>
       <View style={styles.rowBottom}>
         <Text style={{fontWeight: 'bold', fontSize: 15}}>To Pay</Text>
         <Text> {'\u20B9'}{toPay.toFixed(2)}</Text>
       </View>
-      <View style={{marginTop: 5, marginBottom: 7.5}}>
+      <View style={{marginTop: 5, marginBottom: 12.5}}>
         <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckout}>
             <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'white'}}>Checkout</Text>
         </TouchableOpacity>

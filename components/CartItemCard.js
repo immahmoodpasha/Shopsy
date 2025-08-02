@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
         height: 125,
         margin: 10,
         padding: 5,
-        borderRadius: 7.5
+        borderRadius: 7.5,
+        elevation: 7.5
     },
     topItemCard: {
         display: 'flex',
