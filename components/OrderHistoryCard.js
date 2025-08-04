@@ -12,16 +12,16 @@ function OrderHistoryCard ({orders}){
         <TouchableOpacity onPress={() => navigation.navigate('OrderSummary',{order:orders})} activeOpacity={0.8}>
         <View style={styles.orderscard}>
             <View style={styles.orderscardheader}>
-                <Text style={{fontSize:12.5,fontWeight:'bold'}}>{orders.id}</Text>
+                <Text style={{fontSize:11,fontWeight:'bold'}}>{orders.id}</Text>
                 {orders.status === "Delivered" 
                 ?
                 (<>
-                <Text style={{color:'green', fontSize:12.5}}>Succesfull <Image source={require('../assets/check.png')} style={{width:20, height:20}}/></Text>
+                <Text style={{color:'green', fontSize:12}}>Successfull <Image source={require('../assets/check.png')} style={{width:20, height:20}}/></Text>
 
                 </>
                 ) 
                     
-                : (<Text style={{color:'red', fontSize:12.5}}>Pending...</Text>)
+                : (<Text style={{color:'red', fontSize:12}}>Pending...</Text>)
                 }
 
             </View>

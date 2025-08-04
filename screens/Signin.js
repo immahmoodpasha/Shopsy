@@ -14,6 +14,7 @@ const Signin = () => {
       email: '',  
       password: '',
     });
+    const isFormValid = formData.email.trim() !=='' &&  formData.password.trim() !=='';
     const handleInputChange = (name, value) => {
       setFormData({ ...formData, [name]: value });
     };
@@ -25,7 +26,10 @@ const handleSubmit = async (e) => {
     if (res.status === 200) {
       const token = res.data.data.jwtToken;
       await AsyncStorage.setItem('token', token);
-      navigation.navigate('MainApp');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'MainApp' }],
+      });
     }
   } catch (error) {
     console.error("login failed:", error);
@@ -41,7 +45,7 @@ const handleSubmit = async (e) => {
        <AuthInput name="email" label="Email" placeholder="Enter your email" keyboardType="email-address" InputChange={handleInputChange}/>
         <AuthInput name="password" label="Password" placeholder="Enter your password" secureTextEntry InputChange={handleInputChange}/>
         <Text style={styles.forgotPassword}>Forgot password?</Text>
-        <AuthButton title="Sign In" onPress={(e) =>handleSubmit(e)}/>
+        <AuthButton title="Sign In" onPress={(e) =>handleSubmit(e)} disabled={!isFormValid}/>
       </View>
 
       <Text style={styles.footer}>

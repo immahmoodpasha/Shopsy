@@ -23,7 +23,6 @@ function OrderHistory(){
             setloading(false)
         })
         .catch((error)=>{
-            console.error('Data Not Fetched')
             setloading(false)
         })
     },[])
@@ -35,7 +34,9 @@ function OrderHistory(){
         <SafeAreaView>
             <View style={{height:80, backgroundColor:'#ffffffff'}}>
                 <View style={styles.header}>
-                    <Entypo name="chevron-left" size={30} style={{marginLeft:10}}/>
+                    <TouchableOpacity>
+                        <Entypo name="chevron-left" size={30} style={{marginLeft:10}} onPress={() => navigation.navigate('MainApp')}/>
+                    </TouchableOpacity>
                     <Text style={{fontSize:23, fontWeight:500}}>Your Orders</Text>
                 </View>
             </View>
@@ -61,7 +62,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         gap:12,
-        marginTop: 40
+        marginTop: 40,
+        paddingHorizontal: 5
     }
  }
 )

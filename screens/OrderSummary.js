@@ -4,6 +4,7 @@ import { useRoute } from '@react-navigation/native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import check from "../assets/check.png"
 import cross from"../assets/failed.png"
+import warning from "../assets/warning.png" 
 import axios from "axios";
 import { useState } from "react";
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -40,7 +41,7 @@ function OrderSummary(){
             ): (
                     <>
                 <View style={{display:'flex', flexDirection:'row', alignItems:'center', gap:10, marginTop:15}}>
-                        <Image source={cross} style={{ width: 30, height: 30 }} />
+                        <Image source={warning} style={{ width: 30, height: 30 }} />
                         <Text style={{fontSize:25, fontWeight:600}}>Pending</Text>
                 </View>
                     </>

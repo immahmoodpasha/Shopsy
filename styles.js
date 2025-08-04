@@ -68,6 +68,7 @@ export const styles = StyleSheet.create({
         paddingTop: '8%',
         paddingHorizontal: '6%',
         alignItems: 'center',
+        paddingTop: 50,
         marginBottom: 12, // or remove if you want flush layout
 },
     AdsCarousel:{
@@ -97,5 +98,18 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         flex: 1
+    },
+    countAlert: {
+        position: 'absolute',
+        right: -8,
+        top: -9,
+        backgroundColor: '#9f51feff',
+        paddingHorizontal: 6,
+        paddingVertical: 1,
+        borderRadius: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minWidth: 22.5,
+        minHeight: 22.5
     }
 })

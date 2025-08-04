@@ -32,7 +32,6 @@ const Signup = () => {
     if(res.status==201)
       navigation.navigate('Signin');
   } catch (error) {
-    console.error("Registration failed:", error);
     alert("Registration failed");
   }
 };

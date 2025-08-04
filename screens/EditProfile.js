@@ -33,7 +33,6 @@ import apiClient from "../apiClient";
                 navigation.goBack()
             }
             catch(err){
-                console.error('Data Not Saved', err)
             }
         }
 

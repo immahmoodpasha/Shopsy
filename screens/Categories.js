@@ -42,7 +42,7 @@ const Categories = ({ route }) => {
         setProducts(response.data);
       })
       .catch((err) => {
-        console.error('Error fetching products', err);
+
       });
   }, []);
 
@@ -54,15 +54,15 @@ const Categories = ({ route }) => {
 
   useEffect(() => {
     setSearchText('')
-    handleSearch()
   }, [selectedCategory]);
   
-  const filteredProducts =
-    selectedCategory === 'All Items'
-      ? products
-      : products.filter(
-        (p) => p.category.name.toLowerCase() === selectedCategory.toLowerCase()
-      );
+  const filteredProducts = products.filter((p) => {
+    const matchCategory = selectedCategory === 'All Items' || p.category.name.toLowerCase() === selectedCategory.toLowerCase()
+
+    const matchSearch = searchText.trim() === '' || p.name.toLowerCase().includes(searchText.toLowerCase());
+    
+    return matchCategory && matchSearch;
+  });
 
   
   const handleSearch = async () => {
@@ -77,7 +77,6 @@ const Categories = ({ route }) => {
       setProducts(response.data);
     }
   } catch (error) {
-    console.error("Search failed:", error);
   }
 };
 

@@ -8,6 +8,7 @@ import Cart from '../screens/Cart';
 import OrderSummary from '../screens/OrderSummary'
 import EditProfile from '../screens/EditProfile';
 import OrderPlaced from '../screens/OrderPlaced';
+import OrderHistory from '../screens/OrderHistory';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const StackNavigator = () => {
       <Stack.Screen name='OrderSummary' component={OrderSummary} />
       <Stack.Screen name="EditProfile" component={EditProfile}/>
       <Stack.Screen name='OrderPlaced' component={OrderPlaced} />
+      <Stack.Screen name='OrderHistory' component={OrderHistory} />
     </Stack.Navigator>
   );
 };

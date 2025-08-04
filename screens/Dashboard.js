@@ -23,9 +23,6 @@ const Dashboard = ({navigation}) => {
                 
             }
         ).catch(
-            (err)=>{
-                console.error('Error fetching products', err);
-            }
         )
     }, [])
 

@@ -24,14 +24,16 @@ const BillSummary = ({ itemTotal = 0,deliveryFee=40}) => {
             if (response.status === 201 || response.status === 200) {
                 console.log('order placed successfully: ', response.data);
                 clearCart();
-                navigation.navigate('OrderPlaced');
+                navigation.reset({
+                  index: 0,
+                  routes: [{ name: 'OrderPlaced' }],
+                });
             }
             else {
                 console.warn('Something went wrong: ', response.status);
             }
         }
         catch (error) {
-            console.error('checkout error: ', error.message);
         }
     }
   return (

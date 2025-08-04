@@ -1,9 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const AuthButton = ({ title, onPress }) => {
+const AuthButton = ({ title, onPress, disabled }) => {
   return (
-    <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={onPress}>
+    <TouchableOpacity style={[styles.button, disabled && styles.disabledBtn]} activeOpacity={0.7} onPress={onPress} disabled={disabled}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
   },
+  disabledBtn: {
+    backgroundColor: 'grey'
+  }
 });
 
 export default AuthButton;

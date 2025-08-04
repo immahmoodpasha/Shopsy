@@ -12,6 +12,7 @@ import { useNavigation} from '@react-navigation/native';
 import apiClient from "../apiClient";
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function UserProfile(){
     const navigation = useNavigation()
@@ -39,7 +40,6 @@ function UserProfile(){
         setisLoading(false);
       })
       .catch((err) => {
-        console.error('failed to fetch data', err);
         setisLoading(false);
       });
 
@@ -54,11 +54,24 @@ function UserProfile(){
             setData(newUser);
             
             } catch (err) {
-            console.log("Failed to save user profile", err);
             }
             setPull(prev => !prev);
         }
     };
+
+    const handleLogout = async () => {
+        try{
+            await AsyncStorage.removeItem('token');
+            navigation.reset({
+                index: 0,
+                routes: [{name: 'Signin'}]
+            });
+        }
+        catch(e){
+
+        }
+    };
+
     return (
         <SafeAreaView style={styles.Main}>
                 <View style={styles.Header}>
@@ -99,6 +112,11 @@ function UserProfile(){
                 )
 
                 }
+                <View style={styles.logoutCont}>
+                    <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
+                        <Text style={{color:'white', fontWeight:'bold'}}>Log Out</Text>
+                    </TouchableOpacity>
+                </View>
 
         </SafeAreaView>
     )
@@ -167,6 +185,21 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
         width:'60%'
+    },
+    logoutCont: {
+        width: '35%',
+        alignSelf: 'center',
+        marginTop: 50
+    },
+    logoutBtn: {
+        width: '100%',
+        height: '22.5%',
+        borderWidth: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        backgroundColor: "#8404ae",
+
     }
 });
 
