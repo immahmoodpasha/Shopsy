@@ -10,6 +10,7 @@
     import UserProfile from "./UserProfile";
     import Entypo from 'react-native-vector-icons/Entypo';
     import { useNavigation} from '@react-navigation/native';
+import apiClient from "../apiClient";
 
 
     function EditProfile(){
@@ -20,21 +21,21 @@
         const [data, setData] = useState(null)
         const [name, setName]= useState(profileData.name|| "")
         const [email, setEmail] = useState(profileData.email ||"")
-        const [number, setNumber] = useState(profileData.number || "")
+        const [phoneNumber, setPhoneNumber] = useState(profileData.phoneNumber || "")
         const [address, setAddress] = useState(profileData.address || "")
-        const url= 'http://192.168.73.36:3113/userProfile'
+        const url= '/api/customer/edit-profile'
 
-        const handleSave = async ()=>{
-            const newData = {name,email,number,address}
+        const handleSave = async()=>{
+            const newData = {name,email,phoneNumber,address}
             try{
-                await axios.put(url,newData)
+                console.log(newData)
+                const res = await apiClient.put(url,newData)
                 navigation.goBack()
             }
             catch(err){
                 console.error('Data Not Saved', err)
             }
         }
-        
 
         return (
             <SafeAreaView style={styles.SafeAreview}>
@@ -44,13 +45,14 @@
                 </View>
                 <View style={styles.line}></View>
                 <View style={styles.inputContainer}>
-                    <TextInput style={styles.input} value={name} onChangeText={setName} />
-                    <TextInput style={styles.input} value={email} onChangeText={setEmail} />
-                    <TextInput style={styles.input} value={number} editable={false} />
-                    <TextInput style={styles.input} value={address} onChangeText={setAddress} selection={{ start: 0, end: 0 }}/>
+                    <TextInput placeholder="name" style={styles.input} value={name} onChangeText={setName} />
+                    <TextInput style={styles.input} value={email}  editable={false} />
+                    <TextInput placeholder="phonenumber" style={styles.input} value={phoneNumber} onChangeText={setPhoneNumber} />
+                    <TextInput placeholder="address" style={styles.input} value={address} onChangeText={setAddress} />   
+                    {/* selection={{ start: 0, end: 0 }} */}
                 </View>
                 <View style={styles.savebtnContainer}>
-                    <TouchableOpacity onPress={handleSave} style={styles.saveBtn}>
+                    <TouchableOpacity onPress={()=>handleSave()} style={styles.saveBtn}>
                         <Text style={{color:'white'}}>Save</Text>
                     </TouchableOpacity>
                 </View>
@@ -114,4 +116,4 @@
 
 
 
-    export default EditProfile
+    export default EditProfile;

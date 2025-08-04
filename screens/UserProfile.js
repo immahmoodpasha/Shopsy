@@ -9,10 +9,13 @@ import UserProfileData from "../components/UserProfileData";
 import axios from 'axios'
 import EditProfile from "../screens/EditProfile";
 import { useNavigation} from '@react-navigation/native';
+import apiClient from "../apiClient";
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from 'react';
 
 function UserProfile(){
     const navigation = useNavigation()
-    const url= 'http://192.168.73.36:3113/userProfile'
+    const url= '/api/customer/view-profile'
 
     const [data, setData] = useState(null)
     const [isLoading, setisLoading] = useState(true)
@@ -20,28 +23,40 @@ function UserProfile(){
     const [email, setEmail] = useState("")
     const [number, setNumber] = useState("")
     const [address, setAddress] = useState("")
+    const [pull,setPull]=useState(false);
 
-    useEffect(()=>{
-        axios.get(url)
-            .then((response)=>{
-                const data =  response.data
-                if (data && Object.keys(data).length !== 0) {
-                setData(data);
-                 }
-                 setisLoading(false);
-            })
-            .catch((err)=> console.error('failed to fetch data', err))
-    }, [data])
+    useFocusEffect(
+  useCallback(() => {
+    setisLoading(true); // Optional: show loading when refetching
+
+    apiClient.get(url)
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        if (data && Object.keys(data).length !== 0) {
+          setData(data);
+        }
+        setisLoading(false);
+      })
+      .catch((err) => {
+        console.error('failed to fetch data', err);
+        setisLoading(false);
+      });
+
+  }, []) // 👈 empty dependency array: runs every time screen is focused
+);
 
     const handleSave = async () => {
         if (name && email && number && address) {
-            const newUser = { name, email, number, address };
+            const newUser = {name,email,number,address };
             try {
-            await axios.put(url, newUser);
+            await apiClient.put(url,newUser);
             setData(newUser);
+            
             } catch (err) {
             console.log("Failed to save user profile", err);
             }
+            setPull(prev => !prev);
         }
     };
     return (
@@ -62,7 +77,7 @@ function UserProfile(){
                         <Feather name="edit" color="#8404ae" size={24} onPress={()=>navigation.navigate('EditProfile', {profileData: data})} />
                     </View>
                     <UserProfileData label="Name" value={data.name} icon="user"/>
-                    <UserProfileData label="Mobile" value={data.number} icon="phone-call"/>
+                    <UserProfileData label="Mobile" value={data.phoneNumber} icon="phone-call"/>
                     <UserProfileData label="Email" value={data.email} icon="mail"/>
                     <UserProfileData label="Home address" value={data.address} icon="user"/>
                 </View>

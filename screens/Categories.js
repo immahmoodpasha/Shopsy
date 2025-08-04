@@ -14,27 +14,31 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import Card from '../components/Card';
 import Header from '../components/Header';
+import apiClient from '../apiClient';
 
 const PRIMARY_COLOR = '#8404aeff';
 
 const categories = [
   { label: 'All Items', image: require('../images/Allitems.jpg') },
-  { label: 'Vegetables', image: require('../images/Vegetables.jpg') },
-  { label: 'Babycare', image: require('../images/Babycare.jpg') },
-  { label: 'Dairy', image: require('../images/Dairy.jpg') },
-  { label: 'Medicines', image: require('../images/Medicine.jpg') },
-  { label: 'Nonveg', image: require('../images/Nonveg.jpg') },
-  { label: 'more', image: require('../images/mor.png') },
+  { label: 'Fruits & Vegetables', image: require('../images/Vegetables.jpg') },
+  { label: 'Baby Care', image: require('../images/Babycare.jpg') },
+  { label: 'Bakery, Cakes & Dairy', image: require('../images/Dairy.jpg') },
+  { label: 'Beverages', image: require('../images/Dairy.jpg') },
+  { label: 'Snacks & Branded Foods', image: require('../images/Dairy.jpg') },
+  { label: 'Eggs, Meat & Fish', image: require('../images/Nonveg.jpg') },
 ];
 
 const Categories = ({ route }) => {
   const { category } = route.params || {};
   const [selectedCategory, setSelectedCategory] = useState(category || 'All Items');
   const [products, setProducts] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    axios.get('http://192.168.73.36:3113/products')
+    apiClient.get('/api/product')
       .then((response) => {
+        // console.log(response.data.slice(0, 10));
         setProducts(response.data);
       })
       .catch((err) => {
@@ -52,11 +56,22 @@ const Categories = ({ route }) => {
     selectedCategory === 'All Items'
       ? products
       : products.filter(
-          (p) => p.Category.toLowerCase() === selectedCategory.toLowerCase()
-        );
+        (p) => p.category.name.toLowerCase() === selectedCategory.toLowerCase()
+      );
+
+  
+  const handleSearch = async () => {
+  try {
+    console.log(selectedCategory)
+    const response = await apiClient.get(`/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
+    setProducts(response.data);
+  } catch (error) {
+    console.error("Search failed:", error);
+  }
+};
 
   return (
-    <View style={{ flex: 1, backgroundColor:'#f0e6ff', }}>
+    <View style={{ flex: 1, backgroundColor: '#f0e6ff', }}>
       {/* Sticky Header Area */}
       <View style={styles.stickyHeader}>
         <View>
@@ -69,8 +84,12 @@ const Categories = ({ route }) => {
             style={styles.input}
             placeholder="Search for items"
             placeholderTextColor="#888"
+            value={searchText}
+            onChangeText={setSearchText}
+            returnKeyType="search"
+            onSubmitEditing={handleSearch} // optional: triggers search on keyboard enter
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleSearch}>
             <Icon name="search" size={20} color={PRIMARY_COLOR} />
           </TouchableOpacity>
         </View>
@@ -173,7 +192,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   listContent: {
-    
+
     paddingHorizontal: 10,
     paddingBottom: 100,
     paddingTop: 10,

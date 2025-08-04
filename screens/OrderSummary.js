@@ -3,7 +3,7 @@ import { View, Text, StyleSheet,Image, TouchableOpacity, Button, SafeAreaView, S
 import { useRoute } from '@react-navigation/native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import check from "../assets/check.png"
-import failed from"../assets/failed.png"
+import cross from"../assets/failed.png"
 import axios from "axios";
 import { useState } from "react";
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,13 +11,6 @@ import BillingSummary from "../components/BillingSummary";
 import OrderDetailsComponent from "../components/OrderDetailsComponent"
 import { ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-
-
-
-
-
-
 function OrderSummary(){
     const route = useRoute();
     const { order } = route.params;
@@ -47,8 +40,8 @@ function OrderSummary(){
             ): (
                     <>
                 <View style={{display:'flex', flexDirection:'row', alignItems:'center', gap:10, marginTop:15}}>
-                        <Image source={check} style={{ width: 30, height: 30 }} />
-                        <Text style={{fontSize:25, fontWeight:600}}>Delivered</Text>
+                        <Image source={cross} style={{ width: 30, height: 30 }} />
+                        <Text style={{fontSize:25, fontWeight:600}}>Pending</Text>
                 </View>
                     </>
             )
@@ -64,7 +57,7 @@ function OrderSummary(){
                     <View key={item.name + index} style={{ display: 'flex', flexDirection: 'row' }}>
                         <View>
                         <Image
-                            source={{ uri: item.uri }}
+                            source={{ uri: item.imageUrl }}
                             style={{ width: 40, height: 40, marginTop: 10 }}
                         />
                         </View>
@@ -75,7 +68,7 @@ function OrderSummary(){
                         </View>
 
                         <View style={{ marginLeft: 'auto', marginTop: 15, marginRight: 25 }}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>₹ {item.unitPrice}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>₹ {item.price}</Text>
                         </View>
                     </View>
                     ))}
@@ -89,7 +82,7 @@ function OrderSummary(){
                 <View style={{marginLeft:10}}>
                        <BillingSummary label="Item Total" value={order.billing.itemTotal}/>
                        <BillingSummary label="Delivery Fee" value={order.billing.deliveryFee}/>
-                       <BillingSummary label="Platform Fee" value={order.billing.PlatformFee}/>
+                       <BillingSummary label="Platform Fee" value={order.billing.platformFee}/>
                        <View style={{display:'flex',alignItems:'center', justifyContent:"center"}}><View style={{borderBottomColor:'#b6b6b645', borderBottomWidth:1,marginBottom:10, width:'95%'}}></View></View>
                        <View style={{marginLeft:10,marginBottom:10, display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
                             <View>
@@ -97,7 +90,7 @@ function OrderSummary(){
                                 <Text style={{fontSize:15,color:'grey', marginTop:5}}>Incl. all taxes and charges</Text>
                             </View>
                             <View>
-                                <Text style={{fontSize:20,marginRight:30, fontWeight:'bold'}}>₹ {order.billing.totalBill+order.billing.PlatformFee}</Text>
+                                <Text style={{fontSize:20,marginRight:30, fontWeight:'bold'}}>₹ {order.billing.totalBill}</Text>
                             </View>
                         </View> 
                         

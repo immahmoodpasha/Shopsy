@@ -6,6 +6,7 @@ import OrderHistoryCard from '../components/OrderHistoryCard'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { FlatList } from 'react-native';
+import apiClient from '../apiClient';
 
 
 
@@ -15,16 +16,17 @@ function OrderHistory(){
     const [loading, setloading] = useState(true)
     
     useEffect(()=>{
-        axios.get('http://192.168.73.36:3113/orders')
+        apiClient.get('/api/order/order-history')
         .then((response)=>{
-            setOrders(response.data)
+            // console.log(response.data.data[0].items);
+            setOrders(response.data.data)
             setloading(false)
         })
         .catch((error)=>{
             console.error('Data Not Fetched')
             setloading(false)
         })
-    },[orders])
+    },[])
 
       const renderItem = ({ item }) => <OrderHistoryCard orders={item} />;
 

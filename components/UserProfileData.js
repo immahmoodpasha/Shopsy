@@ -3,7 +3,7 @@ import {Image,View,Text,StyleSheet,TextInput,ScrollView,TouchableOpacity, SafeAr
 import Feather from 'react-native-vector-icons/Feather';
 
 
-function UserProfileData ({label, value, icon}) {
+function UserProfileData ({label,value, icon}) {
     return (
         <View>
             <View style={styles.userName}>

@@ -3,12 +3,13 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useCart } from '../context/CartContext';
 import axios from 'axios';
+import apiClient from '../apiClient'
 
 
 
-const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
+const BillSummary = ({ itemTotal = 0,deliveryFee=40}) => {
   const navigation = useNavigation();
-  const toPay = itemTotal;
+  const toPay = itemTotal+46;
   const {cart, removeFromCart, updateQuantity, clearCart} = useCart()
   const handleCheckout = async () => {
         const resToBack = cart.map(item =>({
@@ -17,7 +18,7 @@ const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
             unitPrice: item.price
         }));
         try {
-            const response = await axios.post ('http://10.128.19.188:3113/orders',{
+            const response = await apiClient.post ('/api/order/create-order',{
                 items: resToBack
             });
             if (response.status === 201 || response.status === 200) {
@@ -45,7 +46,11 @@ const BillSummary = ({ itemTotal = 0, deliveryFee }) => {
         </View>
         <View style={styles.row}>
           <Text>Delivery Fee</Text>
-          <Text style={{color: 'green'}}> {deliveryFee}</Text>
+          <Text style={{color:'black'}}>{'\u20B9'}40</Text>
+        </View>
+        <View style={styles.row}>
+          <Text>Platform Fee</Text>
+          <Text style={{color:'black'}}>{'\u20B9'}6</Text>
         </View>
       </View>
       <View style={styles.rowBottom}>

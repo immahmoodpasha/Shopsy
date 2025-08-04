@@ -21,7 +21,7 @@ function OrderHistoryCard ({orders}){
                 </>
                 ) 
                     
-                : (<Text style={{color:'green', fontSize:15}}>Succesfull <Image source={require('../assets/check.png')} style={{width:20, height:20}}/></Text>)
+                : (<Text style={{color:'red', fontSize:15}}>Pending...</Text>)
                 }
 
             </View>

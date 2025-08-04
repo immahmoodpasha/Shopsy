@@ -14,9 +14,9 @@ const Card = ({ product }) => {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: product.quantity,
-      Category: product.Category,
-      image:product.image,
+      quantity: product.units,
+      category: product.category.name,
+      image:product.imageUrl,
     }, 1);
     // clearCart();
   };
@@ -34,7 +34,7 @@ const Card = ({ product }) => {
     <View style={[styles.ProductCard, { height: 176 }]}>
       <View testID="ImageContainer" style={styles.ImageContainer}>
         <Image
-          source={{ uri: product.image }}
+          source={{ uri: product.imageUrl }}
           style={{ width: '100%', height: '100%', borderRadius: 20 }}
         />
 
@@ -78,7 +78,7 @@ const Card = ({ product }) => {
           paddingHorizontal: '5%',
           alignSelf: 'flex-start',
         }}>
-          {product.quantity}
+          {product.units}
         </Text>
         <Text style={{
           fontSize: 12,

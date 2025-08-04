@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import AuthInput from '../components/AuthInput';
 import AuthButton from '../components/AuthButton';
 import sharedStyles from '../styles/authStyles';
+import axios from 'axios';
 
 const Signup = () => {
   const navigation = useNavigation();
@@ -17,15 +18,24 @@ const Signup = () => {
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { email, password, confirmPassword, phoneNumber } = formData;
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    console.log("Form submitted with data:", { email, password, phoneNumber });
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  const { email, password, confirmPassword, phoneNumber } = formData;
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
+  const payload = { email, password, phoneNumber };
+  try {
+    const res = await axios.post('https://54b14fd86c27.ngrok-free.app/api/auth/register-customer', payload);
+    if(res.status==201)
+      navigation.navigate('Signin');
+  } catch (error) {
+    console.error("Registration failed:", error);
+    alert("Registration failed");
+  }
+};
 
   return (
     <View>

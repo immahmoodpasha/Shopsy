@@ -8,17 +8,19 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from '../components/Card';
+import apiClient from "../apiClient";
 
-const categoriesArray = ['Vegetables', 'Dairy', 'Nonveg', 'More'];
+const categoriesArray = ['Fruits & Vegetables', 'Baby Care', 'Bakery, Cakes & Dairy', 'Beverages', 'Snacks & Branded Foods', 'Eggs, Meat & Fish'];
 
 
 const Dashboard = ({navigation}) => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('http://192.168.73.36:3113/products')
+        apiClient.get('/api/product')
         .then(
             (response)=>{
                 setProducts(response.data);
+                
             }
         ).catch(
             (err)=>{
@@ -28,7 +30,7 @@ const Dashboard = ({navigation}) => {
     }, [])
 
     const getProductsForCategory = (category) => {
-        return products.filter(product => product.Category === category);
+        return products.filter(product => product.category.name === category);
     }
     return(
         <View style={styles.Dashboard}>
