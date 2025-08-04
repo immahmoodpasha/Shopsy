@@ -57,7 +57,7 @@ const BillSummary = ({ itemTotal = 0,deliveryFee=40}) => {
         <Text style={{fontWeight: 'bold', fontSize: 15}}>To Pay</Text>
         <Text> {'\u20B9'}{toPay.toFixed(2)}</Text>
       </View>
-      <View style={{marginTop: 5, marginBottom: 7.5}}>
+      <View style={{marginTop: 5, marginBottom: 12.5}}>
         <TouchableOpacity style={styles.checkoutBtn} onPress={handleCheckout}>
             <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'white'}}>Checkout</Text>
         </TouchableOpacity>
