@@ -40,13 +40,13 @@ const Card = ({ product }) => {
 
         {count > 0 ? (
           <View style={[styles.AddButton, {
-            paddingVertical: '2%',
-            paddingHorizontal: '8%',
+            paddingVertical: '0.1%',
+            paddingHorizontal: '5%',
             backgroundColor: '#8404aeff',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '20%',
+            gap: '15%',
             maxWidth: '80%'
           }]}>
             <TouchableOpacity onPress={handleRemove}>
@@ -59,7 +59,7 @@ const Card = ({ product }) => {
           </View>
         ) : (
           <TouchableOpacity onPress={handleAdd} style={styles.AddButton}>
-            <Text style={{ color: '#8404aeff', fontWeight: '800', fontSize: 14 }}>ADD</Text>
+            <Text style={{ color: '#8404aeff', fontWeight: '800', fontSize: 10 }}>ADD</Text>
           </TouchableOpacity>
         )}
       </View>

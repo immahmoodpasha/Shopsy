@@ -40,15 +40,6 @@ const Home = () => {
         <Pressable style={styles.button} onPress={() =>navigate.navigate('Signin')}>
           <Text style={styles.buttonText}>Get Started</Text>
         </Pressable>
-        <Text style={{ marginTop: 10 }}>
-      Login as{' '}
-      <Text
-        style={{ color: 'black', textDecorationLine: 'underline' }}
-        onPress={() => Alert.alert('Employee Link Pressed')}
-      >
-        Employee
-      </Text>
-    </Text>
         <Text style={styles.copyText}>
           By continuing, you agree to our Terms of Service and Privacy Policy.
         </Text>

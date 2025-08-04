@@ -16,7 +16,7 @@ const Cart = () => {
     <View style={styles.container}>
       <View style={styles.topCont}>
         <View style={styles.cartTitCont}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Entypo name='chevron-left' style={[styles.cartTit,{fontSize: 30, marginRight: 5}]}/>
             </TouchableOpacity>
             <Text style={styles.cartTit}>My Cart</Text>

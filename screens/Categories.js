@@ -52,6 +52,11 @@ const Categories = ({ route }) => {
     }
   }, [category]);
 
+  useEffect(() => {
+    setSearchText('')
+    handleSearch()
+  }, [selectedCategory]);
+  
   const filteredProducts =
     selectedCategory === 'All Items'
       ? products
@@ -63,8 +68,14 @@ const Categories = ({ route }) => {
   const handleSearch = async () => {
   try {
     console.log(selectedCategory)
-    const response = await apiClient.get(`/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
-    setProducts(response.data);
+    if (selectedCategory === 'All Items'){
+      const response = await apiClient.get(`/api/product?filterQuery=${encodeURIComponent(searchText)}`);
+      setProducts(response.data);
+    }
+    else {
+      const response = await apiClient.get(`/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
+      setProducts(response.data);
+    }
   } catch (error) {
     console.error("Search failed:", error);
   }

@@ -29,8 +29,8 @@ export const styles = StyleSheet.create({
         bottom: '5%',
         right: '5%',
         backgroundColor: 'white',
-        paddingVertical: '7%',
-        paddingHorizontal: '18%',
+        paddingVertical: '4%',
+        paddingHorizontal: '14%',
         borderRadius: 15,
         borderColor: '#8404ae',
         borderWidth: 2,
@@ -87,7 +87,6 @@ export const styles = StyleSheet.create({
         marginVertical: '2%'
     },
     CategoryTitle: {
-        backgroundColor: '#8404ae',
         borderRadius: 20,
         paddingHorizontal: '3%',
         paddingVertical: '1%',

@@ -20,7 +20,7 @@ const Signin = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post('https://54b14fd86c27.ngrok-free.app/api/auth/login',formData);
+    const res = await axios.post('https://bd1a05ac5838.ngrok-free.app/api/auth/login',formData);
 
     if (res.status === 200) {
       const token = res.data.data.jwtToken;
@@ -41,7 +41,7 @@ const handleSubmit = async (e) => {
        <AuthInput name="email" label="Email" placeholder="Enter your email" keyboardType="email-address" InputChange={handleInputChange}/>
         <AuthInput name="password" label="Password" placeholder="Enter your password" secureTextEntry InputChange={handleInputChange}/>
         <Text style={styles.forgotPassword}>Forgot password?</Text>
-        <AuthButton title="Sign In" onPress={(e) =>handleSubmit(e)} />
+        <AuthButton title="Sign In" onPress={(e) =>handleSubmit(e)}/>
       </View>
 
       <Text style={styles.footer}>

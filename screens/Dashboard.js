@@ -36,7 +36,7 @@ const Dashboard = ({navigation}) => {
         <View style={styles.Dashboard}>
             <Header/>
             <ScrollView style={{paddingHorizontal: '5%'}} showsVerticalScrollIndicator={false}>
-                <Text style={{color: '#8404ae', fontSize: 20, fontWeight: '700', paddingVertical: '3%'}}>Welcome User</Text>
+                <Text style={{color: '#8404ae', fontSize: 22.5, fontWeight: '700', paddingVertical: '3%'}}>Welcome User</Text>
                 <AdsCarousel />
                 <View style={styles.CategorySection}>
                     {categoriesArray.map((category, index)=>{
@@ -48,7 +48,7 @@ const Dashboard = ({navigation}) => {
                             <View key={index}>
                                 <View style={{display:'flex', flexDirection: 'row', alignItems: 'center', marginTop: '4%', justifyContent: 'space-between'}}>
                                     <View style={styles.CategoryTitle}>
-                                        <Text style={{color: 'white', fontWeight: '800', fontSize: 20}}>{category}</Text>
+                                        <Text style={{color: '#8404ae', fontWeight: '800', fontSize: 17.5}}>{category}</Text>
                                     </View>
                                     <TouchableOpacity onPress={()=>navigation.navigate('Categories', {category})}>
                                         <Text size={30} style={{color: '#8404ae', paddingLeft: '3%'}}>View More</Text>
@@ -56,7 +56,7 @@ const Dashboard = ({navigation}) => {
                                 </View>
                                 
                                 <View style={styles.CategoryList}>
-                                    <FlatList contentContainerStyle={{gap:5}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,6)} renderItem={({item, index})=>(
+                                    <FlatList showsHorizontalScrollIndicator={false} contentContainerStyle={{gap:10}} horizontal keyExtractor={(item, index) => index.toString()} data={productsInCategory.slice(0,6)} renderItem={({item, index})=>(
                                         <Card product={item}/>
                                     )}/>
                                 </View>
