@@ -32,8 +32,8 @@ function OrderHistoryCard ({orders}){
                         <View style={styles.OrderHistoryQuantityDiv}>
                             <Text>X {item.quantity}</Text>
                         </View>
-                        <View>
-                            <Text style={{ fontSize: 15 }}>{item.name}</Text>
+                        <View style={{width: '80%'}}>
+                            <Text style={{ fontSize: 15 }} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
                         </View>
                     </View>
                     ))}
