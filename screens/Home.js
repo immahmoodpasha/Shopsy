@@ -21,7 +21,7 @@ const Home = () => {
       <View style={styles.container}>
         <View style={{display:'flex',flexDirection: 'row',justifyContent: 'center', alignItems: 'center',marginBottom: 20}}>
           <Icon name="shop" size={30} color="#8404aeff"/>
-          <Text style={styles.mainheading}>Shopsy</Text>
+          <Text style={styles.mainheading}>Rapidd</Text>
         </View>
        
         <LottieView
@@ -31,7 +31,7 @@ const Home = () => {
   style={styles.image}
 />
 
-        <Text style={styles.text}>Welcome to Shopsy</Text>
+        <Text style={styles.text}>Welcome to Rapidd</Text>
 
         <Text style={styles.tagline}>
           Your one stop solution for all the grocery needs

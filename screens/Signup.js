@@ -40,7 +40,7 @@ const Signup = () => {
   return (
     <View>
       <Icon name="box-open" size={50} color="#8404aeff" style={{ alignSelf: 'center', marginTop: 50 }} />
-      <Text style={sharedStyles.heading}>Shopsy Signup</Text>
+      <Text style={sharedStyles.heading}>Rapidd Signup</Text>
       <Text style={{ alignSelf: 'center', marginTop: 10 }}>Register as a New User</Text>
       <View style={sharedStyles.container}>
         <AuthInput name="email" label="Email" placeholder="Enter your email" keyboardType="email-address" InputChange={handleInputChange}/>

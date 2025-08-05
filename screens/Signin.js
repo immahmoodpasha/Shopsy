@@ -39,7 +39,7 @@ const handleSubmit = async (e) => {
   return (
     <View>
       <Icon name="box-open" size={50} color="#8404aeff" style={{ alignSelf: 'center', marginTop: 50 }} />
-      <Text style={sharedStyles.heading}>Shopsy Login</Text>
+      <Text style={sharedStyles.heading}>Rapidd Login</Text>
 
       <View style={sharedStyles.container}>
        <AuthInput name="email" label="Email" placeholder="Enter your email" keyboardType="email-address" InputChange={handleInputChange}/>
