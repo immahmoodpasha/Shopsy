@@ -14,7 +14,7 @@ const Header = () => {
         <View style={styles.Header}>
             <View style={{display: 'flex', flexDirection: 'row', gap: '8%'}}>
                 <Icon name="shop" size={20} color="white"/>
-                <Text style={{color: 'white', fontSize: 17, fontWeight: 800}}>Shopsy store</Text>
+                <Text style={{color: 'white', fontSize: 20, fontWeight: 800}}>Rapidd</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Cart')} style={{position: 'relative'}}>
                 <Image source={cartIcon} style={{width: 30, height: 30}}></Image>
