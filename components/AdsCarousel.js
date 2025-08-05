@@ -7,11 +7,11 @@ const {width} = Dimensions.get('window');
 const carousel_width = width * 0.9;
 const carousel_height = carousel_width * 0.54;
 
-const ad1 = require('../assets/ad1.png');
-const ad2 = require('../assets/ad2.png');
-const ad3 = require('../assets/ad3.png');
-const ad4 = require('../assets/ad4.png');
-const ad5 = require('../assets/ad5.png');
+const ad1 = require('../assets/ad1.jpg');
+const ad2 = require('../assets/ad2.jpg');
+const ad3 = require('../assets/ad3.jpg');
+const ad4 = require('../assets/ad4.jpg');
+const ad5 = require('../assets/ad5.jpg');
 const AdsCarousel = () => {
 
 
