@@ -23,8 +23,8 @@ const categories = [
   { label: 'Fruits & Vegetables', image: require('../images/Vegetables.jpg') },
   { label: 'Baby Care', image: require('../images/Babycare.jpg') },
   { label: 'Bakery, Cakes & Dairy', image: require('../images/Dairy.jpg') },
-  { label: 'Beverages', image: require('../images/Dairy.jpg') },
-  { label: 'Snacks & Branded Foods', image: require('../images/Dairy.jpg') },
+  { label: 'Beverages', image: require('../images/beverages.jpg') },
+  { label: 'Snacks & Branded Foods', image: require('../images/snack.jpg') },
   { label: 'Eggs, Meat & Fish', image: require('../images/Nonveg.jpg') },
 ];
 

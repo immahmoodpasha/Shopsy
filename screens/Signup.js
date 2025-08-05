@@ -15,20 +15,21 @@ const Signup = () => {
     confirmPassword: '',
     phoneNumber: '',
   });
+  
+  const isFormValid = formData.email.trim() !== '' && formData.password.trim() !== '' && formData.confirmPassword.trim() !== '' && formData.phoneNumber.trim() !== '';
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
   const handleSubmit = async (e) => {
   e.preventDefault();
   const { email, password, confirmPassword, phoneNumber } = formData;
-
   if (password !== confirmPassword) {
     alert("Passwords do not match");
     return;
   }
   const payload = { email, password, phoneNumber };
   try {
-    const res = await axios.post('https://bd1a05ac5838.ngrok-free.app/api/auth/register-customer', payload);
+    const res = await axios.post('https://8d6e90418753.ngrok-free.app/api/auth/register-customer', payload);
     if(res.status==201)
       navigation.navigate('Signin');
   } catch (error) {
@@ -46,7 +47,7 @@ const Signup = () => {
         <AuthInput name="password" label="Password" placeholder="Enter your password" secureTextEntry InputChange={handleInputChange}/>
         <AuthInput name="confirmPassword" label="Confirm Password" placeholder="Confirm your password" secureTextEntry InputChange={handleInputChange}/>
         <AuthInput name="phoneNumber" label="Phone Number" placeholder="Enter your phone number" keyboardType="phone-pad"  InputChange={handleInputChange}/>
-        <AuthButton   title="SignUp" onPress={(e) => {handleSubmit(e)}} />
+        <AuthButton   title="SignUp" onPress={(e) => {handleSubmit(e)}} disabled={!isFormValid}/>
       </View>
       <Text style={styles.footer}>
         Already have an account?{' '}
