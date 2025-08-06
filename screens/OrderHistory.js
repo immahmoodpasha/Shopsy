@@ -16,7 +16,7 @@ function OrderHistory(){
     const [loading, setloading] = useState(true)
     
     useEffect(()=>{
-        apiClient.get('https://4519fc0a3cc7.ngrok-free.app/api/order/order-history')
+        apiClient.get('https://2fabe7816646.ngrok-free.app/api/order/order-history')
         .then((response)=>{
             // console.log(response.data.data[0].items);
             setOrders(response.data.data)

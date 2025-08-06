@@ -39,7 +39,7 @@ const Categories = ({ route }) => {
 
   useEffect(() => {
     setLoading(true);
-    apiClient.get('https://4519fc0a3cc7.ngrok-free.app/api/product')
+    apiClient.get('https://2fabe7816646.ngrok-free.app/api/product')
       .then((response) => {
         // console.log(response.data.slice(0, 10));
         setProducts(response.data);
@@ -74,11 +74,11 @@ const Categories = ({ route }) => {
   try {
     console.log(selectedCategory)
     if (selectedCategory === 'All Items'){
-      const response = await apiClient.get(`https://4519fc0a3cc7.ngrok-free.app/api/product?filterQuery=${encodeURIComponent(searchText)}`);
+      const response = await apiClient.get(`https://2fabe7816646.ngrok-free.app/api/product?filterQuery=${encodeURIComponent(searchText)}`);
       setProducts(response.data);
     }
     else {
-      const response = await apiClient.get(`https://4519fc0a3cc7.ngrok-free.app/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
+      const response = await apiClient.get(`https://2fabe7816646.ngrok-free.app/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
       setProducts(response.data);
     }
   } catch (error) {

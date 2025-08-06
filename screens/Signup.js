@@ -29,7 +29,7 @@ const Signup = () => {
   }
   const payload = { email, password, phoneNumber };
   try {
-    const res = await axios.post('https://4519fc0a3cc7.ngrok-free.app/api/auth/register-customer', payload);
+    const res = await axios.post('https://2fabe7816646.ngrok-free.app/api/auth/register-customer', payload);
     if(res.status==201)
       navigation.navigate('Signin');
   } catch (error) {

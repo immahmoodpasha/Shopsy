@@ -16,7 +16,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function UserProfile(){
     const navigation = useNavigation()
-    const url= 'https://4519fc0a3cc7.ngrok-free.app/api/customer/view-profile'
+    const url= 'https://2fabe7816646.ngrok-free.app/api/customer/view-profile'
 
     const [data, setData] = useState(null)
     const [isLoading, setisLoading] = useState(true)

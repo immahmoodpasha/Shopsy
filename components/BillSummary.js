@@ -18,7 +18,7 @@ const BillSummary = ({ itemTotal = 0,deliveryFee=40}) => {
             unitPrice: item.price
         }));
         try {
-            const response = await apiClient.post ('https://4519fc0a3cc7.ngrok-free.app/api/order/create-order',{
+            const response = await apiClient.post ('https://2fabe7816646.ngrok-free.app/api/order/create-order',{
                 items: resToBack
             });
             if (response.status === 201 || response.status === 200) {
