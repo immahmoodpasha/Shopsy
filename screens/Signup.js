@@ -38,7 +38,7 @@ const Signup = () => {
 };
 
   return (
-    <View>
+    <View style={{marginTop: '5%'}}>
       <Icon name="box-open" size={50} color="#8404aeff" style={{ alignSelf: 'center', marginTop: 50 }} />
       <Text style={sharedStyles.heading}>Rapidd Signup</Text>
       <Text style={{ alignSelf: 'center', marginTop: 10 }}>Register as a New User</Text>

@@ -36,7 +36,7 @@ const handleSubmit = async (e) => {
   }
 };
   return (
-    <View>
+    <View style={{marginTop: '5%'}}>
       <Icon name="box-open" size={50} color="#8404aeff" style={{ alignSelf: 'center', marginTop: 50 }} />
       <Text style={sharedStyles.heading}>Rapidd Login</Text>
 
