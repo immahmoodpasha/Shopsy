@@ -9,12 +9,14 @@ import OrderSummary from '../screens/OrderSummary'
 import EditProfile from '../screens/EditProfile';
 import OrderPlaced from '../screens/OrderPlaced';
 import OrderHistory from '../screens/OrderHistory';
+import Splash from '../screens/Splash';
 
-const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
+  const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+    <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false, animation: 'fade_from_bottom' }}>
+      <Stack.Screen name='Splash' component={Splash} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signin" component={Signin} />

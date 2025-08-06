@@ -31,11 +31,11 @@ const Card = ({ product }) => {
   };
 
   return (
-    <View style={[styles.ProductCard, { height: 176 }]}>
+    <View style={[styles.ProductCard, { height: 200, marginRight: 5, marginBottom: 7.5 }]}>
       <View testID="ImageContainer" style={styles.ImageContainer}>
         <Image
           source={{ uri: product.imageUrl }}
-          style={{ width: '100%', height: '100%', borderRadius: 20 }}
+          style={{ width: '95%', height: '100%', borderRadius: 10 }}
         />
 
         {count > 0 ? (
@@ -86,7 +86,7 @@ const Card = ({ product }) => {
           color: 'rgba(0, 0, 0, 0.83)',
           width: '100%'
         }}
-        numberOfLines={1}
+        numberOfLines={2}
         ellipsizeMode="tail"
         >
           {product.name}
