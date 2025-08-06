@@ -32,7 +32,6 @@ const handleSubmit = async (e) => {
       });
     }
   } catch (error) {
-    console.error("login failed:", error);
     alert("Login Failed failed");
   }
 };

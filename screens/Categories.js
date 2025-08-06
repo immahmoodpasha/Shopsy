@@ -9,6 +9,7 @@ import {
   StatusBar,
   Image,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
@@ -34,16 +35,20 @@ const Categories = ({ route }) => {
   const [products, setProducts] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [isSearching, setIsSearching] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    apiClient.get('/api/product')
+    setLoading(true);
+    apiClient.get('https://4519fc0a3cc7.ngrok-free.app/api/product')
       .then((response) => {
         // console.log(response.data.slice(0, 10));
         setProducts(response.data);
+        setLoading(false);
       })
       .catch((err) => {
-
+        setLoading(true);
       });
+      
   }, []);
 
   useEffect(() => {
@@ -69,11 +74,11 @@ const Categories = ({ route }) => {
   try {
     console.log(selectedCategory)
     if (selectedCategory === 'All Items'){
-      const response = await apiClient.get(`/api/product?filterQuery=${encodeURIComponent(searchText)}`);
+      const response = await apiClient.get(`https://4519fc0a3cc7.ngrok-free.app/api/product?filterQuery=${encodeURIComponent(searchText)}`);
       setProducts(response.data);
     }
     else {
-      const response = await apiClient.get(`/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
+      const response = await apiClient.get(`https://4519fc0a3cc7.ngrok-free.app/api/product?category=${encodeURIComponent(selectedCategory)}&filterQuery=${encodeURIComponent(searchText)}`);
       setProducts(response.data);
     }
   } catch (error) {
@@ -132,17 +137,23 @@ const Categories = ({ route }) => {
       </View>
 
       {/* Scrollable Product List */}
-      <FlatList
-        data={filteredProducts}
-        keyExtractor={(item, index) => index.toString()}
-        contentContainerStyle={styles.listContent}
-        numColumns={3}
-        columnWrapperStyle={{ justifyContent: 'flex-start', gap: 5 }}
-        renderItem={({ item }) => <Card product={item} />}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>No items in this category</Text>
-        }
-      />
+      {loading ? (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <ActivityIndicator size="large" color={PRIMARY_COLOR} />
+        </View>
+      ) : (
+        <FlatList
+          data={filteredProducts}
+          keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={styles.listContent}
+          numColumns={3}
+          columnWrapperStyle={{ justifyContent: 'flex-start', gap: 5 }}
+          renderItem={({ item }) => <Card product={item} />}
+          ListEmptyComponent={
+            <Text style={styles.emptyText}>No items in this category</Text>
+          }
+        />
+      )}
     </View>
   );
 };

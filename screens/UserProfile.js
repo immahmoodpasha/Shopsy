@@ -16,7 +16,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function UserProfile(){
     const navigation = useNavigation()
-    const url= '/api/customer/view-profile'
+    const url= 'https://4519fc0a3cc7.ngrok-free.app/api/customer/view-profile'
 
     const [data, setData] = useState(null)
     const [isLoading, setisLoading] = useState(true)
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     logoutCont: {
         width: '35%',
         alignSelf: 'center',
-        marginTop: 50
+        marginTop: 5
     },
     logoutBtn: {
         width: '100%',

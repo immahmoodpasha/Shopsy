@@ -16,7 +16,7 @@ function OrderHistory(){
     const [loading, setloading] = useState(true)
     
     useEffect(()=>{
-        apiClient.get('/api/order/order-history')
+        apiClient.get('https://4519fc0a3cc7.ngrok-free.app/api/order/order-history')
         .then((response)=>{
             // console.log(response.data.data[0].items);
             setOrders(response.data.data)
@@ -40,7 +40,10 @@ function OrderHistory(){
                     <Text style={{fontSize:23, fontWeight:500}}>Your Orders</Text>
                 </View>
             </View>
-            { loading ? (<ActivityIndicator></ActivityIndicator>) :
+            { loading ? (            
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 50, display:'flex' }}>
+                <ActivityIndicator size="large" color="#8404ae" />
+            </View> ) :
 
             <FlatList
             data={orders}

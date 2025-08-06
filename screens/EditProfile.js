@@ -23,7 +23,7 @@ import apiClient from "../apiClient";
         const [email, setEmail] = useState(profileData.email ||"")
         const [phoneNumber, setPhoneNumber] = useState(profileData.phoneNumber || "")
         const [address, setAddress] = useState(profileData.address || "")
-        const url= '/api/customer/edit-profile'
+        const url= 'https://4519fc0a3cc7.ngrok-free.app/api/customer/edit-profile'
 
         const handleSave = async()=>{
             const newData = {name,email,phoneNumber,address}

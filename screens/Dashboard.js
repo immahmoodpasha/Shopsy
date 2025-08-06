@@ -1,5 +1,5 @@
 import ProductCard from "../components/ProductCard";
-import { Text, View, ScrollView, TouchableOpacity } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity,ActivityIndicator } from "react-native";
 import { styles } from "../styles";
 import Header from "../components/Header";
 import AdsCarousel from "../components/AdsCarousel";
@@ -15,14 +15,17 @@ const categoriesArray = ['Fruits & Vegetables', 'Baby Care', 'Bakery, Cakes & Da
 
 const Dashboard = ({navigation}) => {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(()=>{
-        apiClient.get('/api/product')
+        apiClient.get('https://4519fc0a3cc7.ngrok-free.app/api/product')
         .then(
             (response)=>{
                 setProducts(response.data);
-                
+                setLoading(false);
             }
         ).catch(
+            setLoading(true)
         )
     }, [])
 
@@ -32,6 +35,11 @@ const Dashboard = ({navigation}) => {
     return(
         <View style={styles.Dashboard}>
             <Header/>
+            {loading ? (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 50, display:'flex' }}>
+                <ActivityIndicator size="large" color="#8404ae" />
+            </View>
+            ) :
             <ScrollView style={{paddingHorizontal: '5%'}} showsVerticalScrollIndicator={false}>
                 <Text style={{color: '#8404ae', fontSize: 22.5, fontWeight: '700', paddingVertical: '3%'}}>Welcome User</Text>
                 <AdsCarousel />
@@ -65,6 +73,7 @@ const Dashboard = ({navigation}) => {
                     )}
                 </View>
             </ScrollView>
+}
             
             
             
