@@ -35,7 +35,7 @@ const Card = ({ product }) => {
       <View testID="ImageContainer" style={styles.ImageContainer}>
         <Image
           source={{ uri: product.imageUrl }}
-          style={{ width: '95%', height: '100%', borderRadius: 10 }}
+          style={{ width: '100%', height: '100%', borderRadius: 10 }}
         />
 
         {count > 0 ? (

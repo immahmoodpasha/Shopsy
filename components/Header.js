@@ -4,6 +4,8 @@ const cartIcon = require('../assets/cart.png');
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import { useNavigation } from '@react-navigation/native';
 import { useCart } from "../context/CartContext";
+import Logo from '../assets/Logo.png';
+
 
 const Header = () => {
     const navigation = useNavigation();
@@ -13,8 +15,8 @@ const Header = () => {
     return(
         <View style={styles.Header}>
             <View style={{display: 'flex', flexDirection: 'row', gap: '8%'}}>
-                <Icon name="shop" size={20} color="white"/>
-                <Text style={{color: 'white', fontSize: 20, fontWeight: 800}}>Rapidd</Text>
+                <Image source={Logo} style={styles.logo}/>
+                <Text style={{color: 'white', fontSize: 20, fontWeight: 800, marginTop: 5}}>Rapidd</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Cart')} style={{position: 'relative'}}>
                 <Image source={cartIcon} style={{width: 30, height: 30}}></Image>

@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingVertical: '5%',
+        paddingVertical: '2.5%',
         paddingTop: '8%',
         paddingHorizontal: '6%',
         alignItems: 'center',
@@ -111,5 +111,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         minWidth: 22.5,
         minHeight: 22.5
+    },
+    logo: {
+    width: 40,
+    height: 40,
+    borderRadius: 5
     }
 })
