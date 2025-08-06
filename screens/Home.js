@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import LottieView from 'lottie-react-native';
+import Logo1 from '../assets/Logo1.png'
+import Logo2 from '../assets/Logo2.png'
 
 
 const Home = () => {
@@ -20,8 +22,7 @@ const Home = () => {
       
       <View style={styles.container}>
         <View style={{display:'flex',flexDirection: 'row',justifyContent: 'center', alignItems: 'center',marginBottom: 20}}>
-          <Icon name="shop" size={30} color="#8404aeff"/>
-          <Text style={styles.mainheading}>Rapidd</Text>
+          <Image source={Logo2} style={{width: 240, height: 70}} />
         </View>
        
         <LottieView
